@@ -1,0 +1,39 @@
+.socialIcons {
+  display: flex;
+  align-items: center;
+}
+
+.topBar {
+  display: flex;
+  justify-content: right; /* Aligned to the right */
+  align-items: center;
+  /* Glass background effect with ocean blue transparency */
+  background-color: rgba(26, 42, 64, 0.8); /* Slightly transparent ocean blue */
+  backdrop-filter: blur(10px); /* Blurs the content behind the bar */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for glass effect */
+  padding: 0.25rem 0.5rem;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+  border-radius: 0rem 0rem 0.5rem 0.5rem; /* Rounded corners only at the bottom */
+}
+
+.leftContent {
+  /* You can add content here if needed, e.g., a logo or text */
+  flex-grow: 1; /* Allows it to take up available space */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .topBar {
+    flex-direction: column;
+    padding: 0.25rem;
+  }
+
+  .socialIcons {
+    margin-top: 0.25rem;
+ }
+
+}

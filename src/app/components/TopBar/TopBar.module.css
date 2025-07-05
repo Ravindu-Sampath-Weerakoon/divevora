@@ -8,7 +8,7 @@
   justify-content: right; /* Aligned to the right */
   align-items: center;
   /* Glass background effect with ocean blue transparency */
-  background-color: rgba(26, 42, 64, 0.8); /* Slightly transparent ocean blue */
+  background-color: rgba(26, 42, 64, 0.9); /* Slightly transparent ocean blue */
   backdrop-filter: blur(10px); /* Blurs the content behind the bar */
   -webkit-backdrop-filter: blur(10px); /* For Safari support */
   border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for glass effect */

@@ -1,39 +1,48 @@
 .socialIcons {
   display: flex;
   align-items: center;
+  gap: 1rem; /* Adds spacing between icons */
 }
 
 .topBar {
   display: flex;
-  justify-content: right; /* Aligned to the right */
+  justify-content: flex-end;
   align-items: center;
-  /* Glass background effect with ocean blue transparency */
-  background-color: rgba(26, 42, 64, 0.8); /* Slightly transparent ocean blue */
-  backdrop-filter: blur(10px); /* Blurs the content behind the bar */
-  -webkit-backdrop-filter: blur(10px); /* For Safari support */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for glass effect */
-  padding: 0.25rem 0.5rem;
-  color: #f5f5f5;
-  font-family: "Inter", sans-serif;
-  border-radius: 0rem 0rem 0.5rem 0.5rem; /* Rounded corners only at the bottom */
+  background: linear-gradient(
+    120deg,
+    rgba(0, 119, 182, 0.6) 0%,
+    rgba(0, 180, 216, 0.8) 100%
+  );
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--box-shadow);
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  font-family: var(--font-open-sans), sans-serif;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
+/* Optional Left Content for future logo or text */
 .leftContent {
-  /* You can add content here if needed, e.g., a logo or text */
-  flex-grow: 1; /* Allows it to take up available space */
+  flex-grow: 1;
 }
-
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .topBar {
     flex-direction: column;
-    padding: 0.25rem;
+    padding: 0.5rem;
   }
 
   .socialIcons {
-    margin-top: 0.25rem;
- }
+    margin-top: 0.5rem;
+  }
+}
 
+/* Hover effect for social icons (optional) */
+.socialIcons a:hover svg {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
 }

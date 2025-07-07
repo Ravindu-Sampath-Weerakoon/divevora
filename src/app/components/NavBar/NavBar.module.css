@@ -52,7 +52,7 @@
 .navLink:hover,
 .navLink:focus {
     color: #fff;
-    background: #2563eb;
+    background: var(--primary-color);
     box-shadow: 0 2px 12px rgba(37,99,235,0.13);
 }
 

@@ -1,44 +1,48 @@
 .socialIcons {
   display: flex;
   align-items: center;
+  gap: 1rem; /* Adds spacing between icons */
 }
 
 .topBar {
   display: flex;
-  justify-content: flex-end; /* Use flex-end for clarity */
+  justify-content: flex-end;
   align-items: center;
   background: linear-gradient(
     120deg,
-    rgba(3, 57, 137, 0.6) 0%,
-    rgba(3, 57, 137, 0.80) 100%
-  ); /* Enhanced glassy ocean blue gradient */
+    rgba(0, 119, 182, 0.6) 0%,
+    rgba(0, 180, 216, 0.8) 100%
+  );
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 4px 24px 0 rgba(19, 82, 177, 0.10); /* Soft shadow for depth */
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--box-shadow);
   padding: 0.5rem 1rem;
-  color: #f5f5f5;
-  font-family: "Inter", sans-serif;
-  border-radius: 0 0 0.75rem 0.75rem;
+  color: var(--text-color);
+  font-family: var(--font-open-sans), sans-serif;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   transition: background 0.3s, box-shadow 0.3s;
 }
 
+/* Optional Left Content for future logo or text */
 .leftContent {
-  /* You can add content here if needed, e.g., a logo or text */
-  flex-grow: 1; /* Allows it to take up available space */
+  flex-grow: 1;
 }
-
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .topBar {
     flex-direction: column;
-    padding: 0.25rem;
+    padding: 0.5rem;
   }
 
   .socialIcons {
-    margin-top: 0.25rem;
- }
+    margin-top: 0.5rem;
+  }
+}
 
+/* Hover effect for social icons (optional) */
+.socialIcons a:hover svg {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
 }

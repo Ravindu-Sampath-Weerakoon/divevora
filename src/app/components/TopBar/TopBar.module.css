@@ -5,17 +5,22 @@
 
 .topBar {
   display: flex;
-  justify-content: right; /* Aligned to the right */
+  justify-content: flex-end; /* Use flex-end for clarity */
   align-items: center;
-  /* Glass background effect with ocean blue transparency */
-  background-color: rgba(26, 42, 64, 0.9); /* Slightly transparent ocean blue */
-  backdrop-filter: blur(10px); /* Blurs the content behind the bar */
-  -webkit-backdrop-filter: blur(10px); /* For Safari support */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for glass effect */
-  padding: 0.25rem 0.5rem;
+  background: linear-gradient(
+    120deg,
+    rgba(3, 57, 137, 0.6) 0%,
+    rgba(3, 57, 137, 0.80) 100%
+  ); /* Enhanced glassy ocean blue gradient */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 24px 0 rgba(19, 82, 177, 0.10); /* Soft shadow for depth */
+  padding: 0.5rem 1rem;
   color: #f5f5f5;
   font-family: "Inter", sans-serif;
-  border-radius: 0rem 0rem 0.5rem 0.5rem; /* Rounded corners only at the bottom */
+  border-radius: 0 0 0.75rem 0.75rem;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .leftContent {

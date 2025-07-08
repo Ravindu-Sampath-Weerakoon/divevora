@@ -11,6 +11,7 @@ export default function Home() {
         <TopBar/>
         <NavBar/>
         <div style={{ height: "5000px" }}>
+          <img src="/main_image.jpg" alt="Description" style={{ width: "100%", maxWidth: "1200px" }} />
         </div>
     </div>
     

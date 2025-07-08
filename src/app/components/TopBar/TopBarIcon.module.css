@@ -1,35 +1,41 @@
-/* TopBarIcon.module.css - Revised to match new image */
-
-.social-icon {
+.socialIcon {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 2rem; /* Smaller size */
-  height: 2rem; /* Smaller size */
-  border-radius: 50%;
-  background: transparent; /* Transparent background */
-  color: #ffffff; /* White icon color */
-  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  gap: 0.5rem;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 1rem; /* Smaller font size for icons */
-  margin: 0 0.5rem; /* Slightly smaller margin */
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 0.375rem;
+  padding: 0.15rem 0.5rem;
+  transition: background 0.2s, color 0.2s;
 }
 
-.social-icon:hover,
-.social-icon:focus {
-  background: rgba(255, 255, 255, 0.15); /* Slight white background on hover */
-  color: #ffffff; /* Keep icon white on hover */
-  border-color: #ffffff; /* Solid white border on hover */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Soft glow on hover */
+.socialIcon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.2s ease;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+.socialIcon:hover,
+.socialIcon:focus {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--accent-color, #90e0ef);
+}
+
+.socialIcon:hover svg,
+.socialIcon:focus svg {
+  transform: scale(1.2);
+}
+
+/* Hide label on small screens */
+.label {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .label {
+    display: none;
+  }
 }

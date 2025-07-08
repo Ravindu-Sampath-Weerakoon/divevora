@@ -1,0 +1,125 @@
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('/main_image.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  margin-top: -80px; /* Pull up hero under navbar (match your navbar height) */
+}
+
+.heroContent {
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.647);
+  border-radius: var(--border-radius, 24px);
+  padding: 3rem 3.5rem;
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.3));
+  box-shadow: var(--box-shadow, 0 12px 48px rgba(0,0,0,0.15));
+  transition: background 0.3s ease;
+}
+
+.heroContent:hover {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.25));
+  box-shadow: 0 16px 64px rgba(0,0,0,0.25);
+}
+
+.heroHeading {
+  font-size: 3.2rem;
+  color: var(--primary-color, #0077b6);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: 1.2px;
+  line-height: 1.1;
+  text-shadow: 1px 1px 4px rgba(0, 119, 182, 0.4);
+}
+
+.heroParagraph {
+  font-size: 1.3rem;
+  color: var(--text-color, #1e1e1e);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primaryBtn, .secondaryBtn {
+  padding: 0.85rem 2rem;
+  border-radius: 32px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 0.8px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 12px rgba(0, 119, 182, 0.3);
+  user-select: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryBtn {
+  background-color: var(--primary-color, #0077b6);
+  color: #fff;
+}
+
+.primaryBtn:hover,
+.primaryBtn:focus {
+  background-color: var(--secondary-color, #00b4d8);
+  box-shadow: 0 10px 25px rgba(0, 180, 216, 0.6);
+  transform: translateY(-3px) scale(1.05);
+  outline: none;
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  border: 2px solid var(--primary-color, #0077b6);
+  color: var(--primary-color, #0077b6);
+}
+
+.secondaryBtn:hover,
+.secondaryBtn:focus {
+  background-color: var(--primary-color, #0077b6);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 119, 182, 0.6);
+  transform: translateY(-3px) scale(1.05);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .heroContent {
+    padding: 2rem 2.5rem;
+  }
+
+  .heroHeading {
+    font-size: 2.4rem;
+  }
+
+  .heroParagraph {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+
+  .primaryBtn, .secondaryBtn {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.05rem;
+  }
+}

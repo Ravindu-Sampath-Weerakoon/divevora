@@ -12,7 +12,7 @@
   --accent-color: #90e0ef;         /* Soft turquoise */
   --background-color: #f0f9ff;     /* Light airy background */
   --text-color: #1e1e1e;           /* Almost black for readability */
-  --glass-bg: rgba(255, 255, 255, 0.4); /* Glass panel background */
+  --glass-bg: rgba(255, 255, 255, 0.3); /* Glass panel background */
   --glass-border: rgba(255, 255, 255, 0.4);
   --border-radius: 16px;
   --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);

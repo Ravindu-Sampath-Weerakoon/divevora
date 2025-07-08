@@ -1,48 +1,125 @@
-.socialIcons {
-  display: flex;
-  align-items: center;
-  gap: 1rem; /* Adds spacing between icons */
-}
-
 .topBar {
+  position: relative;
+  top: 0;
+  z-index: 100;
+
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background: linear-gradient(
-    120deg,
-    rgba(0, 119, 182, 0.6) 0%,
-    rgba(0, 180, 216, 0.8) 100%
-  );
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--box-shadow);
-  padding: 0.5rem 1rem;
-  color: var(--text-color);
+
+  background: rgb(71, 71, 71); /* Much darker ocean blue with slight transparency */
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+
+  color: #fff;
   font-family: var(--font-open-sans), sans-serif;
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  transition: background 0.3s, box-shadow 0.3s;
+
+  padding: 0.15rem 1rem;  /* reduced vertical padding */
+
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+
+  min-height: 28px;  /* reduced from 34px */
 }
 
-/* Optional Left Content for future logo or text */
+/* Optional left content */
 .leftContent {
   flex-grow: 1;
+  color: #fff;
+  font-size: 0.85rem;
 }
 
-/* Responsive adjustments */
+/* Social Icons */
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.socialIcons a svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+.socialIcons a:hover svg {
+  transform: scale(1.2);
+  fill: var(--accent-color, #90e0ef);  /* Optional: light sea accent on hover */
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
   .topBar {
     flex-direction: column;
-    padding: 0.5rem;
+    align-items: flex-start;
+    padding: 0.3rem 1rem;  /* adjusted padding for mobile */
   }
 
   .socialIcons {
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
   }
 }
 
-/* Hover effect for social icons (optional) */
+
+
+.topBar {
+  position: relative;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: space-between; /* Changed to space-between to separate left and right */
+  align-items: center;
+
+  background: rgb(51, 49, 56);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+
+  color: #fff;
+  font-family: var(--font-open-sans), sans-serif;
+
+  padding: 0.15rem 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  min-height: 28px;
+}
+
+.leftContent {
+  font-size: 1rem;
+  color: #fff;
+  white-space: nowrap;
+  font-weight: 600;  /* Make text bold */
+}
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.socialIcons a svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
 .socialIcons a:hover svg {
-  transform: scale(1.1);
-  transition: transform 0.2s ease;
+  transform: scale(1.2);
+  fill: var(--accent-color, #90e0ef);
+}
+
+@media (max-width: 768px) {
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.3rem 1rem;
+  }
+
+
+  .socialIcons {
+    margin-top: 0;
+  }
+
+  .leftContent {
+    display: none;
+  }
 }

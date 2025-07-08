@@ -4,7 +4,7 @@
   background: var(--glass-bg, rgba(255, 255, 255, 0.5));
   backdrop-filter: blur(16px) saturate(180%);
   border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   border: 1px solid rgba(255,255,255,0.18);
   position: sticky;
   top: 20px;
@@ -82,7 +82,7 @@
   position: relative;
   font-family: var(--font-roboto), sans-serif;
   font-weight: 500;
-  font-size: 0.96rem;
+  font-size: 0.95rem;
   color: #1e1e1e;
   text-decoration: none;
 
@@ -137,14 +137,14 @@
 /* Logo */
 .logoItem {
   position: absolute;
-  left: 50%;
+  left: 50.8%;
   transform: translateX(-50%);
   width: 6rem;   /* reduced size */
   height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 101;
+  z-index: 2000;
   pointer-events: none;
 }
 

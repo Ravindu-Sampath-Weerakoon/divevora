@@ -1,0 +1,76 @@
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  min-height: 420px;
+  border-radius: var(--border-radius);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  overflow: hidden;
+  margin: 1rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+}
+
+.cardContent {
+  width: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 1.8rem 1.5rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+
+.cardDescription {
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+.cardButton {
+  background-color: #ffcc00;
+  color: #1e1e1e;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.cardButton:hover {
+  background-color: #ffdb4d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+.cardButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .cardButton {
+    width: 100%;
+  }
+}

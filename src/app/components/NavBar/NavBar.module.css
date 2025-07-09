@@ -208,8 +208,8 @@
   }
 
   .navList.navOpen {
-    max-height: 80vh;
-    min-height: 60vh;
+    max-height: 50vh;
+    min-height: 50vh;
   }
 
   .navItem {

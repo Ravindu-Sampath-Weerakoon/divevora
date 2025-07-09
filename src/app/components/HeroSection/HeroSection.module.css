@@ -1,73 +1,122 @@
+/* Theme Colors & Design Variables (as provided by you, ensure these are globally accessible, e.g., in global.css) */
+/* :root {
+  --primary-color: #0077b6;
+  --secondary-color: #00b4d8;
+  --accent-color: #90e0ef;
+  --background-color: #f0f9ff;
+  --text-color: #1e1e1e;
+  --glass-bg: rgba(255, 255, 255, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --border-radius: 16px;
+  --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+} */
+
+
 .heroWrapper {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url('/main_image.jpg') no-repeat center center;
+  background: url('/main_image3.jpg') no-repeat center center; /* Your background image */
   background-size: cover;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: center; /* Vertically center the entire content block within the wrapper */
+  justify-content: center; /* Center the whole content block horizontally within the wrapper */
   padding: 2rem;
-  margin-top: -80px; /* Pull up hero under navbar (match your navbar height) */
+  margin-top: -80px;
+  overflow: hidden;
+}
+
+/* Overlay for the background image to make text more readable */
+.heroWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
 }
 
 .heroContent {
-  max-width: 720px;
-  background: rgba(255, 255, 255, 0.647);
-  border-radius: var(--border-radius, 24px);
-  padding: 3rem 3.5rem;
-  backdrop-filter: blur(15px);
-  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.3));
-  box-shadow: var(--box-shadow, 0 12px 48px rgba(0,0,0,0.15));
-  transition: background 0.3s ease;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-around;
+  /* <<< IMPORTANT CHANGE: Align items to their respective starts/ends for vertical distribution */
+  align-items: flex-start; /* Aligns items to the top of the flex container initially */
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 4%;
+  background: none;
+  border-radius: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
 }
 
-.heroContent:hover {
-  background: var(--glass-bg, rgba(255, 255, 255, 0.25));
-  box-shadow: 0 16px 64px rgba(0,0,0,0.25);
+.leftColumn {
+  flex: 1;
+  max-width: 50%;
+  text-align: left;
+  padding-right: 2rem;
+  /* <<< NEW: Push left column slightly up from its current 'flex-start' position */
+  margin-top: 2vh; /* Adjust this value to move it further up or down */
 }
+
+.rightColumn {
+  flex: 1;
+  max-width: 50%;
+  text-align: left;
+  padding-left: 2rem;
+  /* <<< NEW: Push right column slightly down from its current 'flex-start' position */
+  margin-top: 34vh; /* Adjust this value to move it further down or up */
+}
+
 
 .heroHeading {
-  font-size: 3.2rem;
-  color: var(--primary-color, #0077b6);
-  font-weight: 700;
-  margin-bottom: 1.25rem;
-  letter-spacing: 1.2px;
+  font-size: 4.8rem;
+  color: #fff;
+  font-weight: 800;
   line-height: 1.1;
-  text-shadow: 1px 1px 4px rgba(0, 119, 182, 0.4);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  margin-bottom: 0;
+}
+
+.highlightText {
+  color: #FFD700;
 }
 
 .heroParagraph {
-  font-size: 1.3rem;
-  color: var(--text-color, #1e1e1e);
+  font-size: 1.4rem;
+  color: #fff;
   margin-bottom: 2.5rem;
   line-height: 1.6;
-  font-weight: 400;
-  letter-spacing: 0.3px;
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  max-width: 100%;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .heroButtons {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 0;
 }
 
 .primaryBtn, .secondaryBtn {
-  padding: 0.85rem 2rem;
-  border-radius: 32px;
-  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 40px;
+  font-weight: 700;
   cursor: pointer;
   text-decoration: none;
   font-size: 1.1rem;
-  letter-spacing: 0.8px;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 6px 12px rgba(0, 119, 182, 0.3);
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   user-select: none;
   border: none;
   display: inline-flex;
@@ -76,50 +125,102 @@
 }
 
 .primaryBtn {
-  background-color: var(--primary-color, #0077b6);
-  color: #fff;
+  background-color: #FFD700;
+  color: var(--text-color);
 }
 
 .primaryBtn:hover,
 .primaryBtn:focus {
-  background-color: var(--secondary-color, #00b4d8);
-  box-shadow: 0 10px 25px rgba(0, 180, 216, 0.6);
-  transform: translateY(-3px) scale(1.05);
+  background-color: #FFC400;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px) scale(1.02);
   outline: none;
 }
 
 .secondaryBtn {
   background-color: transparent;
-  border: 2px solid var(--primary-color, #0077b6);
-  color: var(--primary-color, #0077b6);
+  border: 2px solid #fff;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .secondaryBtn:hover,
 .secondaryBtn:focus {
-  background-color: var(--primary-color, #0077b6);
+  background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
-  box-shadow: 0 10px 25px rgba(0, 119, 182, 0.6);
-  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px) scale(1.02);
   outline: none;
 }
 
-@media (max-width: 768px) {
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .heroHeading {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 992px) {
   .heroContent {
-    padding: 2rem 2.5rem;
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+    text-align: center; /* Center text when stacked */
+    padding: 0 2rem; /* Adjust overall content padding */
+  }
+
+  /* Reset margins for stacked layout */
+  .leftColumn, .rightColumn {
+    max-width: 100%;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .leftColumn {
+    margin-bottom: 2rem; /* Space between heading and paragraph when stacked */
   }
 
   .heroHeading {
-    font-size: 2.4rem;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
   }
 
   .heroParagraph {
-    font-size: 1.1rem;
-    max-width: 100%;
+    font-size: 1.2rem;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  .heroButtons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroWrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .heroContent {
+    max-width: 100%;
+  }
+  .heroHeading {
+    font-size: 2.8rem;
+  }
+  .heroParagraph {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroHeading {
+    font-size: 2.2rem;
+  }
+  .heroParagraph {
+    font-size: 0.95rem;
+  }
   .primaryBtn, .secondaryBtn {
     width: 100%;
-    padding: 1rem 0;
-    font-size: 1.05rem;
+    max-width: 250px;
   }
 }

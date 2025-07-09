@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './AdventureBanner.module.css';
-import DiverImage from './9531706Asset 1@0.2x.png';  // ✅ Update this to your correct path
+import DiverImage from './9531706Asset 1@0.2x.png';  // ✅ Make sure path is correct
 
 const AdventureBanner: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const AdventureBanner: React.FC = () => {
             Join Us to <span className={styles.highlight}>Dive</span>, Discover, and Enjoy!
           </h2>
           <p className={styles.subheading}>
-            Explore the ocean's beauty, meet amazing marine life, and make every dive an adventure to remember — all while having fun with us!
+            Explore the ocean&apos;s beauty, meet amazing marine life, and make every dive an adventure to remember — all while having fun with us!
           </p>
           <button className={styles.ctaButton}>BOOK NOW</button>
         </div>

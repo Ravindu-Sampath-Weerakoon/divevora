@@ -6,6 +6,9 @@ import DiverImage from './9531706Asset 1@0.2x.png';  // ✅ Make sure path is co
 const AdventureBanner: React.FC = () => {
   return (
     <section className={styles.bannerWrapper}>
+      <div className={styles.bannerContent}>
+
+     
       <div className={styles.contentWrapper}>
         <div className={styles.textContent}>
           <h2 className={styles.heading}>
@@ -25,6 +28,7 @@ const AdventureBanner: React.FC = () => {
           />
         </div>
       </div>
+       </div>
     </section>
   );
 };

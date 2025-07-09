@@ -1,15 +1,30 @@
+/* Banner wrapper stretches full width with background and effects */
 .bannerWrapper {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  background-color: #003049;
-  border-radius: 2rem;
+  width: 100vw;               /* full viewport width */
+  max-width: 100vw;           /* no max width */
+  margin: 0 auto;             /* reset margin */
+  padding: 4rem 0;            /* vertical padding only */
+  /* Gradient background left to right: dark to light */
+  background: linear-gradient(
+    to right,
+    #003049,       /* dark blue on the left */
+    #005f87        /* lighter blue on the right */
+  );
+  /* border-radius: 2rem; */  /* kept commented as per your code */
   color: #fff;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 1.5rem auto;
-  width: calc(100% - 24rem);  /* consistent side margins */
   box-sizing: border-box;
+}
+
+/* Inner container constrains content width and centers */
+.bannerContent {
+  max-width: 1200px;          /* content max width */
+  margin: 0 auto;             /* center horizontally */
+  padding: 0 2rem;            /* horizontal padding */
+  box-sizing: border-box;
+  width: 100%;                /* full width inside max-width */
 }
 
 .bannerWrapper:hover {
@@ -17,21 +32,24 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* Content wrapper for layout inside bannerContent */
 .contentWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 0 1rem;
+  gap: 0.5rem;
+  padding: 0 2rem;
 }
 
+/* Text content area */
 .textContent {
   flex: 1 1 500px;
   max-width: 550px;
   padding-left: 1rem;
 }
 
+/* Heading styles */
 .heading {
   font-size: 2.5rem;
   font-weight: 700;
@@ -40,19 +58,22 @@
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
+/* Highlighted text */
 .highlight {
   color: #ffcc00;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
+/* Subheading styles */
 .subheading {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 2rem;
   color: #e0e0e0;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Call to action button */
 .ctaButton {
   background-color: #ffcc00;
   color: #1e1e1e;
@@ -73,14 +94,16 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
+/* Image wrapper */
 .imageWrapper {
   flex: 1 1 450px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 0.1rem;
+  padding-right: 0rem;
 }
 
+/* Image styles */
 .diverImage {
   max-width: 100%;
   height: auto;
@@ -88,10 +111,11 @@
   border-radius: 1rem;
 }
 
-/* Responsive for tablets and smaller screens */
+/* Medium screens */
 @media (max-width: 1200px) {
-  .bannerWrapper {
-    width: calc(100% - 10rem); /* 1.5rem side margin */
+  .bannerContent {
+    max-width: 900px;
+    padding: 0 1.5rem;
   }
 
   .textContent {
@@ -103,36 +127,15 @@
   }
 }
 
+/* Tablets and large phones */
 @media (max-width: 768px) {
   .bannerWrapper {
-    padding: 2rem 1rem;
-    width: calc(100% - 4rem); /* 1rem side margin */
-    margin: 2rem auto;
+    padding: 2rem 0;
   }
-/* Responsive for tablets and smaller screens */
-@media (max-width: 1200px) {
-  .bannerWrapper {
-    width: calc(100% - 8rem); /* a bit less side margin to give more space */
-    max-width: 900px;         /* reduce max-width for medium screens */
-    padding: 3rem 1.5rem;     /* reduce padding a bit */
-  }
-
-  .textContent {
-    padding-left: 0.5rem;
-  }
-
-  .ctaButton {
-    max-width: 100%;
-  }
-}
-
-/* Smaller devices */
-@media (max-width: 768px) {
-  .bannerWrapper {
-    width: calc(100% - 3rem);  /* tighter side margins */
-    max-width: 600px;          /* smaller max width */
-    padding: 3rem 5rem;      /* less padding */
-    margin: 0.1rem auto;       /* slightly smaller vertical margin */
+  
+  .bannerContent {
+    max-width: 600px;
+    padding: 0 1rem;
   }
 
   .contentWrapper {
@@ -150,11 +153,11 @@
   }
 
   .heading {
-    font-size: 1.5rem;         /* smaller heading */
+    font-size: 2rem;  /* Bigger for small screens */
   }
 
   .subheading {
-    font-size: 0.9rem;         /* smaller subheading */
+    font-size: 1rem;  /* Slightly bigger for readability */
   }
 
   .ctaButton {
@@ -168,33 +171,28 @@
   }
 
   .diverImage {
-    max-width: 50%;            /* smaller image */
+    max-width: 60%;
     height: auto;
     margin: 0 auto;
     border-radius: 1rem;
-    display: block;
   }
 }
 
-/* Extra small screens (phones, 400px and below) */
+/* Extra small devices (400px and below) */
 @media (max-width: 400px) {
-  .bannerWrapper {
-    width: calc(100% - 3rem);
-    max-width: 100%;
-    padding: 3rem 0.5rem;
-    margin: 1rem auto;
+  .bannerContent {
+    padding: 0 1rem;
   }
 
   .heading {
-    font-size: 1.3rem;
+    font-size: 1.6rem;   /* Bigger heading for tiny screens */
   }
 
   .subheading {
-    font-size: 0.8rem;
+    font-size: 1rem;     /* No smaller than this */
   }
 
   .diverImage {
-    max-width: 70%;  /* slightly bigger image on very small screens */
+    max-width: 70%;
   }
-}
 }

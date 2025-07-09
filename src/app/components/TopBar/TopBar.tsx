@@ -7,7 +7,7 @@ import { FaFacebookF, FaYoutube, FaTiktok } from "react-icons/fa";
 const TopBar: React.FC = () => (
   <div className={styles.topBar}>
     <div className={styles.leftContent}>
-      Follow our social media
+      Follow Our Social Media
     </div>
     <div className={styles.socialIcons}>
       <TopBarIcon label="Facebook" href="https://facebook.com" icon={<FaFacebookF size={24} />} />

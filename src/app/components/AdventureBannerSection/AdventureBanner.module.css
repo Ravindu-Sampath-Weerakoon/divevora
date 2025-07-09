@@ -1,0 +1,200 @@
+.bannerWrapper {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  background-color: #003049;
+  border-radius: 2rem;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 1.5rem auto;
+  width: calc(100% - 24rem);  /* consistent side margins */
+  box-sizing: border-box;
+}
+
+.bannerWrapper:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.textContent {
+  flex: 1 1 500px;
+  max-width: 550px;
+  padding-left: 1rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.highlight {
+  color: #ffcc00;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.subheading {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #e0e0e0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ctaButton {
+  background-color: #ffcc00;
+  color: #1e1e1e;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  width: fit-content;
+}
+
+.ctaButton:hover {
+  background-color: #ffdb4d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.imageWrapper {
+  flex: 1 1 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0.1rem;
+}
+
+.diverImage {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 1rem;
+}
+
+/* Responsive for tablets and smaller screens */
+@media (max-width: 1200px) {
+  .bannerWrapper {
+    width: calc(100% - 10rem); /* 1.5rem side margin */
+  }
+
+  .textContent {
+    padding-left: 0.5rem;
+  }
+
+  .ctaButton {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerWrapper {
+    padding: 2rem 1rem;
+    width: calc(100% - 4rem); /* 1rem side margin */
+    margin: 2rem auto;
+  }
+/* Responsive for tablets and smaller screens */
+@media (max-width: 1200px) {
+  .bannerWrapper {
+    width: calc(100% - 8rem); /* a bit less side margin to give more space */
+    max-width: 900px;         /* reduce max-width for medium screens */
+    padding: 3rem 1.5rem;     /* reduce padding a bit */
+  }
+
+  .textContent {
+    padding-left: 0.5rem;
+  }
+
+  .ctaButton {
+    max-width: 100%;
+  }
+}
+
+/* Smaller devices */
+@media (max-width: 768px) {
+  .bannerWrapper {
+    width: calc(100% - 3rem);  /* tighter side margins */
+    max-width: 600px;          /* smaller max width */
+    padding: 3rem 5rem;      /* less padding */
+    margin: 0.1rem auto;       /* slightly smaller vertical margin */
+  }
+
+  .contentWrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .textContent,
+  .imageWrapper {
+    flex: none;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .heading {
+    font-size: 1.5rem;         /* smaller heading */
+  }
+
+  .subheading {
+    font-size: 0.9rem;         /* smaller subheading */
+  }
+
+  .ctaButton {
+    width: 100%;
+    max-width: none;
+  }
+
+  .imageWrapper {
+    margin: 1rem 0 0 0;
+    padding: 0;
+  }
+
+  .diverImage {
+    max-width: 50%;            /* smaller image */
+    height: auto;
+    margin: 0 auto;
+    border-radius: 1rem;
+    display: block;
+  }
+}
+
+/* Extra small screens (phones, 400px and below) */
+@media (max-width: 400px) {
+  .bannerWrapper {
+    width: calc(100% - 3rem);
+    max-width: 100%;
+    padding: 3rem 0.5rem;
+    margin: 1rem auto;
+  }
+
+  .heading {
+    font-size: 1.3rem;
+  }
+
+  .subheading {
+    font-size: 0.8rem;
+  }
+
+  .diverImage {
+    max-width: 70%;  /* slightly bigger image on very small screens */
+  }
+}
+}

@@ -62,7 +62,30 @@ body {
   background-color: #f5f7fa;  /* Light neutral background */
   color: var(--text-color, #1e1e1e);
   line-height: 1.6;
+  
 }
+
+body {
+  background: 
+    radial-gradient(circle at top left, transparent 25%, rgba(0, 180, 216, 0.05) 25.5%, rgba(0, 180, 216, 0.05) 36%, transparent 37%, transparent 100%),
+    radial-gradient(circle at bottom right, transparent 34%, rgba(0, 180, 216, 0.05) 34.5%, rgba(0, 180, 216, 0.05) 45.5%, transparent 46%, transparent 100%);
+  
+  background-size: 2em 2em;
+  background-color: #f0f9ff;
+}
+
+
+/* body {
+  background: radial-gradient(circle at top left, transparent 25%, #00b4d8 25.5%, #00b4d8 36%, transparent 37%, transparent 100%),
+              radial-gradient(circle at bottom right, transparent 34%, #00b4d8 34.5%, #00b4d8 45.5%, transparent 46%, transparent 100%);
+  background-size: 2em 2em;
+  background-color: #f0f9ff;
+  opacity: 0.15;   
+  min-height: 100vh;
+} */
+
+
+
 
 /* Headings */
 h1, h2, h3 {

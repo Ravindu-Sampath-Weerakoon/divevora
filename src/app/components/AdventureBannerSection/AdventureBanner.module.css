@@ -7,10 +7,14 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 1.5rem auto;
-  width: calc(100% - 24rem);  /* consistent side margins */
+  margin:1rem auto;
+  margin-top: 0;
+  margin-bottom: 4rem;
+  width: calc(100% - 6rem);
   box-sizing: border-box;
 }
+
+
 
 .bannerWrapper:hover {
   transform: translateY(-5px) scale(1.01);
@@ -22,8 +26,8 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 0 1rem;
+  gap: 0.5rem;
+  padding: 0 2rem;
 }
 
 .textContent {
@@ -46,7 +50,7 @@
 }
 
 .subheading {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 2rem;
   color: #e0e0e0;
@@ -78,7 +82,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 0.1rem;
+  padding-right: 0 rem;
 }
 
 .diverImage {
@@ -88,10 +92,12 @@
   border-radius: 1rem;
 }
 
-/* Responsive for tablets and smaller screens */
+/* Medium screens */
 @media (max-width: 1200px) {
   .bannerWrapper {
-    width: calc(100% - 10rem); /* 1.5rem side margin */
+    width: calc(100% - 8rem);
+    max-width: 900px;
+    padding: 3rem 1.5rem;
   }
 
   .textContent {
@@ -103,36 +109,13 @@
   }
 }
 
+/* Tablets and large phones */
 @media (max-width: 768px) {
   .bannerWrapper {
+    width: calc(100% - 3rem);
+    max-width: 600px;
     padding: 2rem 1rem;
-    width: calc(100% - 4rem); /* 1rem side margin */
-    margin: 2rem auto;
-  }
-/* Responsive for tablets and smaller screens */
-@media (max-width: 1200px) {
-  .bannerWrapper {
-    width: calc(100% - 8rem); /* a bit less side margin to give more space */
-    max-width: 900px;         /* reduce max-width for medium screens */
-    padding: 3rem 1.5rem;     /* reduce padding a bit */
-  }
-
-  .textContent {
-    padding-left: 0.5rem;
-  }
-
-  .ctaButton {
-    max-width: 100%;
-  }
-}
-
-/* Smaller devices */
-@media (max-width: 768px) {
-  .bannerWrapper {
-    width: calc(100% - 3rem);  /* tighter side margins */
-    max-width: 600px;          /* smaller max width */
-    padding: 3rem 5rem;      /* less padding */
-    margin: 0.1rem auto;       /* slightly smaller vertical margin */
+    margin: 1rem auto;
   }
 
   .contentWrapper {
@@ -150,11 +133,11 @@
   }
 
   .heading {
-    font-size: 1.5rem;         /* smaller heading */
+    font-size: 2rem;  /* ✅ Bigger for small screens */
   }
 
   .subheading {
-    font-size: 0.9rem;         /* smaller subheading */
+    font-size: 1rem;  /* ✅ Slightly bigger for readability */
   }
 
   .ctaButton {
@@ -168,33 +151,31 @@
   }
 
   .diverImage {
-    max-width: 50%;            /* smaller image */
+    max-width: 60%;
     height: auto;
     margin: 0 auto;
     border-radius: 1rem;
-    display: block;
   }
 }
 
-/* Extra small screens (phones, 400px and below) */
+/* Extra small devices (400px and below) */
 @media (max-width: 400px) {
   .bannerWrapper {
-    width: calc(100% - 3rem);
+    width: calc(100% - 2rem);
     max-width: 100%;
-    padding: 3rem 0.5rem;
+    padding: 1.5rem 1rem;
     margin: 1rem auto;
   }
 
   .heading {
-    font-size: 1.3rem;
+    font-size: 1.6rem;   /* ✅ Bigger heading for tiny screens */
   }
 
   .subheading {
-    font-size: 0.8rem;
+    font-size: 1rem;     /* ✅ No smaller than this */
   }
 
   .diverImage {
-    max-width: 70%;  /* slightly bigger image on very small screens */
+    max-width: 70%;
   }
-}
 }

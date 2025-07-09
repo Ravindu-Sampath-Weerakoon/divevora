@@ -1,7 +1,7 @@
 
 .sectionWrapper {
   padding: 4rem 2rem;
-  background: var(--background-color);
+  background: transparent;
   text-align: center;
 }
 

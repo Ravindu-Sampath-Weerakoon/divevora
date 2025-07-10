@@ -60,8 +60,11 @@
 }
 
 .headerSection {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 1.5rem;
   color: #ffffff;
+  margin-left: 0.5rem ;
 }
 
 .headerTitle {
@@ -72,12 +75,14 @@
   justify-content: center;
   color: #ffffff;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  /* flex-direction: column; */
 }
 
 .headerIcon {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   color: #ffffff; /* yellow accent */
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.8));
+  transform: scaleX(-1);
 }
 
 .mainContentLayout {
@@ -118,6 +123,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+  margin-left: 2.5rem;
+  margin-right: 0rem;
 }
 
 .featureCard {
@@ -156,6 +163,7 @@
 @media (min-width: 768px) {
   .featuresGrid {
     grid-template-columns: repeat(2, 1fr);
+    
   }
 }
 
@@ -199,6 +207,20 @@
   .mainParagraph {
     font-size: 1rem;
   }
+
+  .headerTitle {
+    flex-direction: column;
+}
+
+
+.featuresGrid {
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+  
+
+
 }
 
 @media (max-width: 480px) {

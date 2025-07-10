@@ -3,6 +3,8 @@
 import React from 'react';
 import styles from './DiveWithUs.module.css';
 import { GraduationCap, Cog, Award, HeartHandshake, ShipWheel } from 'lucide-react';
+import { MdScubaDiving } from "react-icons/md";
+
 
 const features = [
   { icon: GraduationCap, title: 'Expert Guidance' },
@@ -31,7 +33,8 @@ const DiveWithUs = () => {
         <div className={styles.mainCardContentOverlay}>
           <div className={styles.headerSection}>
             <h2 className={styles.headerTitle}>
-              <ShipWheel className={styles.headerIcon} size={32} /> Why Dive With Us?
+              <MdScubaDiving className={styles.headerIcon} size={48} /> 
+              Why Dive With Us?
             </h2>
           </div>
 

@@ -1,0 +1,242 @@
+/* Outer container allows overflow for scaled cards */
+.peopleSaySection {
+  padding: 5rem 2rem;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url('/pexels-harvey-clements-13141095-15763632.jpg') center/cover no-repeat fixed;
+  color: #ffffff;
+  position: relative;
+  overflow: visible;
+  font-family: 'Open Sans', sans-serif;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+/* Inner wrapper */
+.peopleSaySection__inner {
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  overflow: visible;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  user-select: none;
+  padding: 0 1rem;
+}
+
+/* Title */
+.sectionTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.icon {
+  font-size: 2.4rem;
+  color: #ffcc00;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.sectionTitle:hover .icon {
+  transform: rotate(-10deg) scale(1.15);
+}
+
+/* Subtitle */
+.sectionSubtitle {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  margin-bottom: 3rem;
+  color: #e0e0e0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Swiper container */
+.swiper {
+  padding: 3rem 0 5rem;
+  overflow: visible;
+}
+
+/* Swiper wrapper */
+.swiper-wrapper {
+  overflow: visible !important;
+  margin-top: 4rem;
+}
+
+/* Swiper slide */
+.swiper-slide {
+  margin-top: 4rem;
+  overflow: visible;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Active slide */
+.swiper-slide-active {
+  transform: scale(1.05);
+  z-index: 10;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.3));
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.swiper-slide-next,
+.swiper-slide-prev {
+  transform: scale(0.95);
+  filter: brightness(0.85);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navigation buttons */
+.customNavButton {
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(145deg, #ffdb4d, #e6b800);
+  border-radius: 50%;
+  box-shadow:
+    0 4px 8px rgba(255, 204, 0, 0.6),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.6);
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  z-index: 20;
+  border: none;
+  outline: none;
+}
+
+.customNavButton:hover {
+  background: linear-gradient(145deg, #ffe066, #ffcc00);
+  box-shadow:
+    0 6px 15px rgba(255, 204, 0, 0.9),
+    inset 0 -3px 6px rgba(255, 255, 255, 0.8);
+  color: #111;
+  transform: translateY(-50%) scale(1.2);
+}
+
+.prevButton {
+  left: 12px;
+}
+
+.nextButton {
+  right: 12px;
+}
+
+/* Pagination bullets */
+.swiper-pagination {
+  bottom: 1rem !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #ffffff;
+  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffcc00;
+  opacity: 1;
+  width: 16px;
+  height: 16px;
+  transform: scale(1.2);
+}
+
+/* Comment Card */
+.commentCard {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  transform-origin: top center;
+  will-change: transform;
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.8rem 2.4rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-style: italic;
+  cursor: default;
+  user-select: text;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 160px;
+}
+
+.commentCard:hover,
+.commentCard:focus-within {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+  outline: none;
+  z-index: 20;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .customNavButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .customNavButton svg {
+    font-size: 1rem;
+  }
+
+  .prevButton {
+    left: 8px;
+  }
+
+  .nextButton {
+    right: 8px;
+  }
+
+  .swiper {
+    padding-bottom: 6rem;
+  }
+}

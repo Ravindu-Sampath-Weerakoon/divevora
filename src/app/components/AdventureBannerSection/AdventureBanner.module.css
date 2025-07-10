@@ -1,16 +1,14 @@
 /* Banner wrapper stretches full width with background and effects */
+/* Banner wrapper stretches full width without horizontal scroll */
 .bannerWrapper {
-  width: 100vw;               /* full viewport width */
-  max-width: 100vw;           /* no max width */
-  margin: 0 auto;             /* reset margin */
-  padding: 4rem 0;            /* vertical padding only */
-  /* Gradient background left to right: dark to light */
+  width: 100%;                /* Use percentage to avoid scrollbar issue */
+  margin: 0 auto;
+  padding: 4rem 0;
   background: linear-gradient(
     to right,
-    #003049,       /* dark blue on the left */
-    #005f87        /* lighter blue on the right */
+    #003049,
+    #005f87
   );
-  /* border-radius: 2rem; */  /* kept commented as per your code */
   color: #fff;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -20,11 +18,11 @@
 
 /* Inner container constrains content width and centers */
 .bannerContent {
-  max-width: 1200px;          /* content max width */
-  margin: 0 auto;             /* center horizontally */
-  padding: 0 2rem;            /* horizontal padding */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   box-sizing: border-box;
-  width: 100%;                /* full width inside max-width */
+  width: 100%;
 }
 
 .bannerWrapper:hover {

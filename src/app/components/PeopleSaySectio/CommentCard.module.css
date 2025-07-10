@@ -1,0 +1,38 @@
+.commentCard {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+  /* max-width: 400px; */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 1rem 2rem;
+}
+
+.commentCard:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.quoteIcon {
+  color: #00b4d8;
+  margin-bottom: 1rem;
+}
+
+.commentText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+
+.authorName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ffcc00;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}

@@ -2,7 +2,7 @@ import React from "react";
 import TopBarIcon from "../TopBar/TopBarIcon";
 import styles from "./TopBar.module.css";
 
-import { FaFacebookF, FaYoutube, FaTiktok, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTiktok, FaInstagram } from "react-icons/fa";
 
 const TopBar: React.FC = () => (
   <div className={styles.topBar}>

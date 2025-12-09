@@ -2,13 +2,24 @@
 
 import React, { useState } from 'react';
 import styles from './Footer.module.css';
+import Link from 'next/link'; // 1. Import Next.js Link
 import { FaFacebookF, FaInstagram, FaTiktok, FaPhoneAlt, FaEnvelope, FaChevronRight, FaPaperPlane } from 'react-icons/fa';
 
+// 2. Define the links array (same as Navbar)
+const QUICK_LINKS = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Scuba Diving', href: '#' },
+  { label: 'PADI Courses', href: '#' },
+  { label: 'Activities', href: '#' },
+  { label: 'Dive Sites', href: '#' },
+  { label: 'Pricing', href: '#' },
+  { label: 'Contact Us', href: '/contact' }, // Fixed path for Contact Us
+];
+
 const Footer: React.FC = () => {
-  // State for the text box message
   const [message, setMessage] = useState('');
 
-  // Handle the "Send Message" button click
   const handleSendMessage = () => {
     const body = encodeURIComponent(message);
     const subject = encodeURIComponent("Inquiry from Website");
@@ -45,15 +56,16 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Quick Links Column */}
+        {/* Quick Links Column (UPDATED) */}
         <div className={styles.column}>
           <h3 className={styles.columnTitle}>Quick Links</h3>
           <ul className={styles.linkList}>
-            {['Home', 'About Us', 'Scuba Diving', 'PADI Courses', 'Activities', 'Dive Sites', 'Pricing'].map((item) => (
-              <li key={item}>
-                <a href="#" className={styles.linkItem}>
-                  <FaChevronRight className={styles.linkIcon} /> {item}
-                </a>
+            {QUICK_LINKS.map((link) => (
+              <li key={link.label}>
+                {/* 3. Replaced <a> with <Link> for internal navigation */}
+                <Link href={link.href} className={styles.linkItem}>
+                  <FaChevronRight className={styles.linkIcon} /> {link.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -64,19 +76,17 @@ const Footer: React.FC = () => {
           <h3 className={styles.columnTitle}>Contact Us</h3>
           <div className={styles.contactWrapper}>
             
-            {/* 1. Clickable Phone */}
             <a href="tel:+94755511055" className={styles.contactItem}>
               <FaPhoneAlt className={styles.contactIcon} />
               <span>+94 75 551 1055</span>
             </a>
 
-            {/* 2. Clickable Email Link */}
             <a href="mailto:info@divevora.com" className={styles.contactItem}>
               <FaEnvelope className={styles.contactIcon} />
               <span>info@divevora.com</span>
             </a>
 
-            {/* 3. Text Box Section (Added Back) */}
+            {/* Text Box Section */}
             <div className={styles.emailBoxWrapper}>
               <p className={styles.inputLabel}>Send us a quick message:</p>
               

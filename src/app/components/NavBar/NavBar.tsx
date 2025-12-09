@@ -3,17 +3,19 @@
 import React, { useState } from 'react';
 import styles from './NavBar.module.css';
 import Image from 'next/image';
+import Link from 'next/link'; // 1. Import Link
 import logo from './logo.png';
 
+// 2. Updated paths to match your actual pages
 const NAV_LINKS = [
-  { label: 'HOME', href: '#' },
-  { label: 'ABOUT US', href: '#' },
-  { label: 'SCUBA DIVING', href: '#' },
+  { label: 'HOME', href: '/' },
+  { label: 'ABOUT US', href: '/about-us' },
+  { label: 'SCUBA DIVING', href: '#' }, // Update these later when you create the pages
   { label: 'PADIE COURSES', href: '#' },
   { label: 'ACTIVITIES', href: '#' },
   { label: 'DIVE SITES', href: '#' },
   { label: 'PRICING', href: '#' },
-  { label: 'CONTACT US', href: '#' },
+  { label: 'CONTACT US', href: '/contact' },
 ];
 
 export default function NavBar() {
@@ -40,28 +42,34 @@ export default function NavBar() {
         className={`${styles.navList} ${menuOpen ? styles.navOpen : ''}`}
         onClick={() => setMenuOpen(false)}
       >
+        {/* Left Side Links */}
         {NAV_LINKS.slice(0, 4).map((link) => (
           <li key={link.label} className={styles.navItem}>
-            <a href={link.href} className={styles.navLink}>
+            {/* 3. Replaced <a> with <Link> */}
+            <Link href={link.href} className={styles.navLink}>
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
 
+        {/* Space for Center Logo */}
         <li className={styles.fakeLogoSpace} aria-hidden="true"></li>
 
+        {/* Right Side Links */}
         {NAV_LINKS.slice(4).map((link) => (
           <li key={link.label} className={styles.navItem}>
-            <a href={link.href} className={styles.navLink}>
+            <Link href={link.href} className={styles.navLink}>
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
 
       {/* Center Logo */}
       <div className={styles.logoItem}>
-        <Image src={logo} alt="Divevora Logo" className={styles.logo} />
+        <Link href="/">
+          <Image src={logo} alt="Divevora Logo" className={styles.logo} />
+        </Link>
       </div>
     </nav>
   );

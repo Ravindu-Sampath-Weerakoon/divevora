@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar/NavBar";
 import OfferCardSection from "./components/OfferSection/OfferCardSection";
 import PeopleSaySection from "./components/PeopleSaySectio/PeopleSaySectio";
 import TopBar from "./components/TopBar/TopBar";
+import Footer from "./components/Footer/Footer";
 
 
 export default function Home() {
@@ -20,6 +21,8 @@ export default function Home() {
         <AdventureBanner/>
         <DiveWithUs/>
         <PeopleSaySection/>
+
+        <Footer/>
       
 
     </div>

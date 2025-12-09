@@ -1,0 +1,288 @@
+/* --- Base Footer --- */
+.footer {
+  background-color: #2c2c2c; 
+  color: #f0f0f0; 
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden; 
+}
+
+/* --- Stylish Top Bar --- */
+.footerTopBar {
+  background-color: #1a1a1a;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Double Blue Border */
+  border-top: 3px solid #00b4d8; 
+  border-bottom: 3px solid #00b4d8; 
+}
+
+.topBarText {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* --- Layout --- */
+.footerBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1100px; 
+  margin: 0 auto;
+  padding: 60px 20px;
+  gap: 40px;
+}
+
+.column {
+  flex: 1;
+  min-width: 260px;
+}
+
+/* --- Modern Title Styling --- */
+.columnTitle {
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+}
+
+/* The small blue dash under the title */
+.columnTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 40px; 
+  height: 3px;
+  background-color: #00b4d8;
+  transition: width 0.3s ease;
+}
+
+.columnTitle:hover::after {
+  width: 100%; 
+}
+
+/* --- Text & Content --- */
+.description {
+  color: #aaaaaa;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+/* --- Social Icons --- */
+.socialIcons {
+  display: flex;
+  gap: 12px;
+}
+
+.iconLink {
+  background-color: #3a3a3a; 
+  color: #ffffff;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.iconLink:hover {
+  background-color: #00b4d8;
+  transform: translateY(-5px); 
+  box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3); 
+}
+
+/* --- Link List --- */
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: 12px;
+}
+
+.linkItem {
+  color: #cccccc;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.linkIcon {
+  font-size: 0.7rem;
+  margin-right: 8px;
+  color: #00b4d8;
+  opacity: 0; 
+  transform: translateX(-10px); 
+  transition: all 0.3s ease;
+}
+
+.linkItem:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.linkItem:hover .linkIcon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Contact Section --- */
+.contactWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center; 
+  color: #cccccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-decoration: none; 
+  transition: color 0.3s ease;
+}
+
+.contactItem:hover {
+  color: #00b4d8; 
+}
+
+.contactIcon {
+  color: #00b4d8;
+  margin-right: 15px;
+  font-size: 1.1rem;
+}
+
+/* --- NEW: Text Box & Button Styles --- */
+.emailBoxWrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Optional: adds a subtle box around the input area */
+  background-color: #262626; 
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.inputLabel {
+  font-size: 0.85rem;
+  color: #cccccc;
+  margin: 0;
+  font-weight: 600;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #333; /* Dark input bg */
+  color: #fff;
+  font-family: inherit;
+  resize: none; 
+  outline: none;
+  font-size: 0.9rem;
+  transition: border 0.3s ease;
+}
+
+.emailInput:focus {
+  border-color: #00b4d8; /* Blue border on focus */
+}
+
+.emailButton {
+  background-color: #00b4d8;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.emailButton:hover {
+  background-color: #0096c7;
+}
+
+/* --- Copyright --- */
+.copyright {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  color: #666;
+  border-top: 1px solid #333;
+}
+
+/* --- Responsive (Mobile) --- */
+@media (max-width: 768px) {
+  .footerBody {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  /* Center the title underline on mobile */
+  .columnTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .columnTitle:hover::after {
+    width: 40px; 
+  }
+
+  .socialIcons {
+    justify-content: center;
+  }
+
+  .linkItem {
+    justify-content: center;
+  }
+  
+  .linkItem:hover {
+    transform: none;
+    color: #00b4d8;
+  }
+  
+  .linkIcon {
+    display: none; 
+  }
+
+  .contactItem {
+    justify-content: center;
+  }
+
+  /* Ensure text box aligns nicely on mobile */
+  .emailBoxWrapper {
+    text-align: left; 
+  }
+}

@@ -76,13 +76,13 @@ export default function ContactPage() {
             <div className={styles.socialSection}>
               <h3 className={styles.socialTitle}>Follow Us</h3>
               <div className={styles.socialIcons}>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Facebook">
+                <a href="https://www.facebook.com/share/17DoGFmzQx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Facebook">
                   <FaFacebookF />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram">
+                <a href="https://www.instagram.com/divevora_sri_lanka?igsh=MWowcG92eTBjdHJ0bA==" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram">
                   <FaInstagram />
                 </a>
-                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="TikTok">
+                <a href="https://www.tiktok.com/@divevora.sri.lank?_t=ZS-8ygLtv2P0Es&_r=1" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="TikTok">
                   <FaTiktok />
                 </a>
               </div>

@@ -10,7 +10,7 @@ import logo from './logo.png';
 const NAV_LINKS = [
   { label: 'HOME', href: '/' },
   { label: 'ABOUT US', href: '/about-us' },
-  { label: 'SCUBA DIVING', href: '#' }, // Update these later when you create the pages
+  { label: 'SCUBA DIVING', href: '/scuba-diving' }, // Update these later when you create the pages
   { label: 'PADIE COURSES', href: '#' },
   { label: 'ACTIVITIES', href: '#' },
   { label: 'DIVE SITES', href: '#' },

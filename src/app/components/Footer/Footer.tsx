@@ -9,7 +9,7 @@ import { FaFacebookF, FaInstagram, FaTiktok, FaPhoneAlt, FaEnvelope, FaChevronRi
 const QUICK_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'Scuba Diving', href: '#' },
+  { label: 'Scuba Diving', href: '/scuba-diving' },
   { label: 'PADI Courses', href: '#' },
   { label: 'Activities', href: '#' },
   { label: 'Dive Sites', href: '#' },

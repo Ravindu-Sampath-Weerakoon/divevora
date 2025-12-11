@@ -151,10 +151,12 @@ export default function PadiScubaDiverPage() {
           <p className={styles.text}>
             After becoming a certified PADI Scuba Diver, you can easily upgrade to the full <strong>PADI Open Water Diver</strong> certification at any time by completing the remaining modules. This unlocks more independence and greater depths!
           </p>
-          <div className={styles.stepBadge}>
+         
+            <Link href="/padi-courses/OpenWaterDiver" className={styles.stepBadge}>
             <span>Upgrade to Open Water</span>
             <FaArrowRight />
-          </div>
+            </Link>
+        
         </div>
       </section>
 

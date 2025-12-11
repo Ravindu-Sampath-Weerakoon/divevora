@@ -13,8 +13,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Use an image showing a rescue scenario or surface assist */
-  background: url('/padi/RescueDiver.webp') no-repeat center center; 
+  /* Ideally a photo of CPR practice or First Aid kit */
+  background: url('/padi/EmergencyFirstResponse.webp') no-repeat center center; 
   background-size: cover;
   margin-top: -80px; 
   padding-top: 80px;
@@ -23,8 +23,8 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  /* Darker overlay for serious tone */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(40, 0, 0, 0.7));
+  /* Red tinted overlay for Medical theme */
+  background: linear-gradient(to bottom, rgba(100, 0, 0, 0.5), rgba(40, 0, 0, 0.8));
 }
 
 .heroContent {
@@ -57,13 +57,13 @@
 
 .heroBadge {
   display: inline-block;
-  background-color: #d62828; /* Red for Rescue */
+  background-color: #ef233c; /* Medical Red */
   color: white;
   font-weight: 700;
   padding: 10px 25px;
   border-radius: 50px;
   font-size: 1.2rem;
-  box-shadow: 0 5px 15px rgba(214, 40, 40, 0.4);
+  box-shadow: 0 5px 15px rgba(239, 35, 60, 0.4);
   transform: rotate(-3deg);
 }
 
@@ -74,16 +74,16 @@
   margin: 0 auto;
 }
 
-/* Gradient Background: Navy to Dark Red (Subtle) */
-.blueSection {
-  background: linear-gradient(135deg, #1d3557 0%, #457b9d 100%);
+/* Gradient Background: Bright Red to Dark Red */
+.redSection {
+  background: linear-gradient(135deg, #d90429 0%, #8d99ae 100%);
   max-width: 100%; 
   border-radius: 50px 50px 0 0; 
   margin-bottom: -50px; 
   padding-bottom: 100px;
 }
 
-/* Very Light Gray/Blue for "Who Is It For?" */
+/* Light Grey for "Who Is It For?" */
 .graySection {
   background-color: #f8f9fa; 
   max-width: 100%;
@@ -94,7 +94,7 @@
 .sectionTitle {
   font-family: var(--font-montserrat);
   font-size: 2.5rem;
-  color: #1d3557;
+  color: #2b2d42; /* Dark Slate */
   text-align: center;
   font-weight: 800;
   margin-bottom: 30px;
@@ -151,7 +151,7 @@
 .iconCircle {
   width: 70px;
   height: 70px;
-  background-color: #457b9d;
+  background-color: #8d99ae; /* Slate Grey */
   color: white;
   border-radius: 50%;
   display: flex;
@@ -187,12 +187,12 @@
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  border-left: 5px solid #d62828; /* Red Accent */
+  border-left: 5px solid #ef233c; /* Red Accent */
 }
 
 .subTitle {
   font-size: 1.8rem;
-  color: #1d3557;
+  color: #2b2d42;
   margin-bottom: 25px;
   font-family: var(--font-montserrat);
 }
@@ -212,7 +212,7 @@
 }
 
 .listIcon {
-  color: #d62828;
+  color: #ef233c;
   font-size: 1.5rem;
   margin-right: 15px;
   min-width: 24px;
@@ -249,18 +249,18 @@
 /* --- Next Steps --- */
 .nextStepsContainer {
   text-align: center;
-  background: #f1faee;
+  background: #edf2f4;
   padding: 50px;
   border-radius: 30px;
   margin-top: 20px;
-  border: 1px solid #a8dadc;
+  border: 1px solid #d8e2dc;
 }
 
 .stepBadge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #1d3557;
+  background: #2b2d42;
   color: white;
   padding: 10px 30px;
   border-radius: 50px;
@@ -272,14 +272,14 @@
 
 .stepBadge:hover {
   gap: 15px;
-  background: #457b9d;
+  background: #d90429;
 }
 
 /* --- CTA Section --- */
 .ctaSection {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(to right, #004e7a, #002b45);
+  background: linear-gradient(to right, #d90429, #2b2d42); /* Red to Slate */
   color: white;
 }
 

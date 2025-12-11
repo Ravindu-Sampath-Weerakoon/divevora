@@ -159,17 +159,19 @@ export default function BubblemakerPage() {
         </div>
       </section>
 
-      {/* 6. Next Steps */}
+      {/* 6. Next Steps (UPDATED LINK) */}
       <section className={styles.section}>
         <div className={styles.nextStepsContainer}>
           <h2 className={styles.sectionTitle}>What's Next?</h2>
           <p className={styles.text}>
             After completing Bubblemaker, young divers can continue their adventure with the <strong>PADI Seal Team</strong> or the <strong>PADI Junior Open Water Diver</strong> course.
           </p>
-          <div className={styles.stepBadge}>
+          
+          <Link href="/padi-courses/PADIScubaDiver" className={styles.stepBadge}>
             <span>Continue the Adventure</span>
             <FaArrowRight />
-          </div>
+          </Link>
+          
         </div>
       </section>
 

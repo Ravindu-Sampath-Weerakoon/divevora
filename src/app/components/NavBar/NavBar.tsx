@@ -27,9 +27,9 @@ const NAV_LINKS = [
       { label: 'Open Water Diver', href: '/padi-courses/OpenWaterDiver' },
       { label: 'Advanced Open Water Diver', href: '/padi-courses/AdvancedOpenWaterDiver' },
       { label: 'Rescue Diver', href: '/padi-courses/RescueDiver' },
-      { label: 'Emergency First Response (EFR)', href: '#' },
-      { label: 'Divemaster', href: '#' },
-      { label: 'Specialties', href: '#' },
+      { label: 'Emergency First Response (EFR)', href: '/padi-courses/EmergencyFirstResponse' },
+      { label: 'Divemaster', href: '/padi-courses/Divemaster' },
+      { label: 'Specialties', href: '/padi-courses/Specialties' },
     ]
   },
   { label: 'ACTIVITIES', href: '#' },

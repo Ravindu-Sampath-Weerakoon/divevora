@@ -1,25 +1,26 @@
 'use client';
 
 import React from 'react';
-import styles from './openWater.module.css';
+import styles from './divemaster.module.css';
 import Link from 'next/link';
 import { 
-  FaBookOpen, 
-  FaSwimmingPool, 
-  FaWater, 
+  FaLaptop, 
+  FaUsers, 
+  FaTools, 
   FaBirthdayCake, 
-  FaSwimmer, 
+  FaFileContract, 
+  FaHistory, 
   FaHeartbeat, 
   FaClock, 
   FaMask, 
   FaIdCard, 
-  FaUserAstronaut,
-  FaCompass,
-  FaPlaneDeparture,
+  FaUserTie, 
+  FaGraduationCap, 
+  FaMapMarkedAlt, 
   FaArrowRight
 } from 'react-icons/fa';
 
-export default function OpenWaterPage() {
+export default function DivemasterPage() {
   return (
     <div className={styles.container}>
       
@@ -27,9 +28,9 @@ export default function OpenWaterPage() {
       <section className={styles.hero}>
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>PADI Open Water Diver</h1>
-          <p className={styles.heroSubtitle}>Dive Into Adventure</p>
-          <div className={styles.heroBadge}>Max Depth 18m</div>
+          <h1 className={styles.heroTitle}>PADI Divemaster</h1>
+          <p className={styles.heroSubtitle}>Become a Dive Leader</p>
+          <div className={styles.heroBadge}>Professional Level</div>
         </div>
       </section>
 
@@ -38,45 +39,45 @@ export default function OpenWaterPage() {
         <div className={styles.introContainer}>
           <h2 className={styles.sectionTitle}>Course Description</h2>
           <p className={styles.text}>
-            The <strong>PADI Open Water Diver</strong> course is the world’s most popular and widely recognized scuba certification. 
-            It’s your ticket to a lifetime of intense adventure with PADI, the most respected scuba diving training organization. 
-            This course equips you with the essential skills and knowledge to explore the underwater world confidently and safely.
+            The <strong>PADI Divemaster</strong> course is your gateway to becoming a professional diver. 
+            This comprehensive program is designed to develop your leadership abilities by training you to supervise diving activities and assist instructors with student divers. 
+            It’s the first step toward a rewarding career in scuba diving.
           </p>
         </div>
       </section>
 
-      {/* 3. What to Expect (Animated Cards) */}
-      <section className={`${styles.section} ${styles.blueSection}`}>
+      {/* 3. What to Expect (Pro Themed Cards) */}
+      <section className={`${styles.section} ${styles.proSection}`}>
         <h2 className={styles.sectionTitleWhite}>What to Expect</h2>
         <div className={styles.grid}>
           
           <div className={styles.card}>
             <div className={styles.iconCircle}>
-              <FaBookOpen />
+              <FaLaptop />
             </div>
             <h3 className={styles.cardTitle}>Knowledge Development</h3>
             <p className={styles.cardText}>
-              Understand the basics of scuba diving through the manual and video theory. Study at your own pace online (eLearning) or offline and complete quizzes.
+              Cover topics like dive theory, leadership, and risk management via the Divemaster manual and videos. This phase typically takes around 50 hours.
             </p>
           </div>
 
           <div className={styles.card}>
             <div className={styles.iconCircle} style={{ background: '#ffd700', color: '#000' }}>
-              <FaSwimmingPool />
+              <FaUsers />
             </div>
-            <h3 className={styles.cardTitle}>Confined Water Dives</h3>
+            <h3 className={styles.cardTitle}>Practical Application</h3>
             <p className={styles.cardText}>
-              Practice essential skills in a pool or calm lagoon. Take your first breaths underwater and learn gear setup, buoyancy control, and mask clearing.
+              Refine your skills by leading dive groups, assisting instructors, conducting briefings, mapping sites, and managing diver stress.
             </p>
           </div>
 
           <div className={styles.card}>
-            <div className={styles.iconCircle} style={{ background: '#005f8f', color: '#fff' }}>
-              <FaWater />
+            <div className={styles.iconCircle} style={{ background: '#333', color: '#fff' }}>
+              <FaTools />
             </div>
-            <h3 className={styles.cardTitle}>Open Water Dives</h3>
+            <h3 className={styles.cardTitle}>Skill Workshops</h3>
             <p className={styles.cardText}>
-              Experience four dives in the ocean under the supervision of a PADI Instructor. Apply your skills in real-world conditions and explore the underwater world.
+              Participate in hands-on workshops focusing on rescue skills, navigation, and dive management to prepare for real-world scenarios.
             </p>
           </div>
 
@@ -93,15 +94,19 @@ export default function OpenWaterPage() {
             <ul className={styles.list}>
               <li>
                 <FaBirthdayCake className={styles.listIcon} />
-                <span><strong>Age:</strong> Must be at least 10 years old.</span>
+                <span><strong>Age:</strong> Must be at least 18 years old.</span>
               </li>
               <li>
-                <FaSwimmer className={styles.listIcon} />
-                <span><strong>Swimming:</strong> Swim 200m & tread water for 10 mins.</span>
+                <FaFileContract className={styles.listIcon} />
+                <span><strong>Prerequisites:</strong> Rescue Diver + EFR (Primary/Secondary Care within 24 months).</span>
+              </li>
+              <li>
+                <FaHistory className={styles.listIcon} />
+                <span><strong>Experience:</strong> 40 logged dives to start, 60 to certify.</span>
               </li>
               <li>
                 <FaHeartbeat className={styles.listIcon} />
-                <span><strong>Health:</strong> Must be medically fit for diving.</span>
+                <span><strong>Health:</strong> Medically fit (Signed physician statement required).</span>
               </li>
             </ul>
           </div>
@@ -112,15 +117,15 @@ export default function OpenWaterPage() {
             <ul className={styles.list}>
               <li>
                 <FaClock className={styles.listIcon} />
-                <span><strong>Duration:</strong> 3-4 days (flexible schedule).</span>
+                <span><strong>Duration:</strong> Several weeks (variable pace).</span>
               </li>
               <li>
                 <FaMask className={styles.listIcon} />
-                <span><strong>Equipment:</strong> All basic scuba gear is provided.</span>
+                <span><strong>Equipment:</strong> Basic gear provided (Having your own pro gear is recommended).</span>
               </li>
               <li>
                 <FaIdCard className={styles.listIcon} />
-                <span><strong>Certification:</strong> Dive to 18 meters (60 feet) with a buddy.</span>
+                <span><strong>Certification:</strong> Allows you to work as a dive pro and lead dives.</span>
               </li>
             </ul>
           </div>
@@ -129,23 +134,23 @@ export default function OpenWaterPage() {
       </section>
 
       {/* 5. Who It's For */}
-      <section className={`${styles.section} ${styles.graySection}`}>
+      <section className={`${styles.section} ${styles.goldSection}`}>
         <h2 className={styles.sectionTitle}>Who Is It For?</h2>
         <div className={styles.targetGrid}>
           <div className={styles.targetCard}>
-            <FaUserAstronaut size={50} color="#00b4d8" />
-            <h4>Beginners</h4>
-            <p>New to scuba diving and want to earn their first full certification.</p>
+            <FaUserTie size={50} color="#000" />
+            <h4>Aspiring Pros</h4>
+            <p>Those looking to start a serious career in the diving industry.</p>
           </div>
           <div className={styles.targetCard}>
-            <FaCompass size={50} color="#ffd700" />
-            <h4>Adventurers</h4>
-            <p>Individuals looking to explore the underwater world & marine life.</p>
+            <FaGraduationCap size={50} color="#b8860b" />
+            <h4>Advanced Divers</h4>
+            <p>Individuals who want to master their skills and dive theory.</p>
           </div>
           <div className={styles.targetCard}>
-            <FaPlaneDeparture size={50} color="#00b4d8" />
-            <h4>Vacation Divers</h4>
-            <p>Tourists wishing to add an exciting underwater adventure to their trip.</p>
+            <FaMapMarkedAlt size={50} color="#000" />
+            <h4>Adventure Seekers</h4>
+            <p>Those who enjoy leading others and teaching about the ocean.</p>
           </div>
         </div>
       </section>
@@ -155,11 +160,11 @@ export default function OpenWaterPage() {
         <div className={styles.nextStepsContainer}>
           <h2 className={styles.sectionTitle}>Next Steps</h2>
           <p className={styles.text}>
-            After becoming a certified Open Water Diver, you can continue your education with the <strong>PADI Advanced Open Water Diver</strong>, Rescue Diver, or Specialty courses to unlock new adventures!
+            After earning your Divemaster certification, you can continue your education with the <strong>PADI Instructor Development Course (IDC)</strong> or specialize in areas like marine conservation and equipment maintenance.
           </p>
           
-            <Link href="/padi-courses/AdvancedOpenWaterDiver" className={styles.stepBadge}>
-            <span>Go Advanced</span>
+            <Link href="/padi-courses/Specialties" className={styles.stepBadge}>
+            <span>Become an Instructor</span>
             <FaArrowRight />
             </Link>
           
@@ -168,9 +173,9 @@ export default function OpenWaterPage() {
 
       {/* 7. CTA */}
       <section className={styles.ctaSection}>
-        <h2 className={styles.heroTitle}>Start Your Underwater Journey</h2>
+        <h2 className={styles.heroTitle}>Start Your Professional Career</h2>
         <p className={styles.text} style={{ fontSize: '1.2rem', color: '#fff' }}>
-          The gateway to adventure. Perfect for beginners aged 10+.
+          Develop your leadership skills and dive expertise. Join the pro ranks today.
         </p>
         <Link href="/contact" className={styles.ctaButton}>
           Book Now

@@ -5,12 +5,19 @@ import styles from './NavBar.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from './logo.png';
-import { FaChevronDown, FaTimes } from 'react-icons/fa'; // Import FaTimes for the X icon
+import { FaChevronDown, FaTimes } from 'react-icons/fa';
 
 const NAV_LINKS = [
   { label: 'HOME', href: '/' },
   { label: 'ABOUT US', href: '/about-us' },
-  { label: 'SCUBA DIVING', href: '/scuba-diving' },
+  { 
+    label: 'SCUBA DIVING', 
+    href: '/scuba-diving', // Main link goes to default page
+    dropdown: [
+      { label: 'Beginners (Discover)', href: '/scuba-diving?tab=beginners' },
+      { label: 'Certified Divers', href: '/scuba-diving?tab=certified' },
+    ]
+  },
   { 
     label: 'PADI COURSES', 
     href: '#', 
@@ -38,22 +45,22 @@ export default function NavBar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const handleDropdownClick = (e: React.MouseEvent, label: string) => {
+    // Only toggle dropdown logic on mobile
     if (window.innerWidth <= 1068) { 
-      e.preventDefault(); 
+      e.preventDefault(); // Stop navigation on mobile to show sub-menu
       setActiveDropdown(activeDropdown === label ? null : label);
     }
   };
 
   return (
     <nav className={styles.navbarWrapper}>
-      {/* Hamburger / Close Icon (Top Left) */}
+      {/* Hamburger / Close Icon */}
       <button
         className={styles.hamburger}
         onClick={toggleMenu}
         aria-label="Toggle menu"
         aria-expanded={menuOpen}
       >
-        {/* Toggle between Hamburger bars and X icon based on state */}
         {menuOpen ? (
            <FaTimes size={24} color="#333" />
         ) : (
@@ -79,6 +86,7 @@ export default function NavBar() {
               className={styles.navLink}
               onClick={(e) => {
                 if (link.dropdown) {
+                  // If mobile, toggle dropdown. If desktop, let it navigate (if valid href)
                   handleDropdownClick(e, link.label);
                 } else {
                   setMenuOpen(false);
@@ -97,7 +105,7 @@ export default function NavBar() {
                     <Link 
                       href={subItem.href} 
                       className={styles.dropdownLink}
-                      onClick={() => setMenuOpen(false)} 
+                      onClick={() => setMenuOpen(false)} // Clicking a sub-link closes menu
                     >
                       {subItem.label}
                     </Link>
@@ -124,7 +132,7 @@ export default function NavBar() {
           </li>
         ))}
 
-        {/* --- NEW: Bottom Close Button (Mobile Only) --- */}
+        {/* Mobile Bottom Close Button */}
         <li className={styles.mobileCloseItem}>
           <button className={styles.mobileCloseButton} onClick={() => setMenuOpen(false)}>
             <FaTimes /> Close Menu

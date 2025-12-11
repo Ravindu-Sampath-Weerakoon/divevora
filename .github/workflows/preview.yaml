@@ -5,8 +5,8 @@ env:
   # NEXT_TELEMETRY_DISABLED: 1
 on:
   push:
-    branches-ignore:
-      - final_test
+    branches:             # Changed from 'branches-ignore' to 'branches'
+      - final_test        # Now this workflow ONLY runs when pushing to 'final_test'
 jobs:
   Deploy-Preview:
     runs-on: ubuntu-latest

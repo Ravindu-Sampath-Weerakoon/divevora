@@ -169,7 +169,7 @@
 /* --- Logo --- */
 .logoItem {
   position: absolute;
-  left: 52%;
+  left: 50%;
   transform: translate(-50%, -50%);
   top: 50%;
   width: 6rem;
@@ -198,6 +198,7 @@
 
 /* --- MOBILE STYLES (Fixed Full Screen & Scrollable) --- */
 @media (max-width: 1400px) {
+  
 
   .hamburger { display: flex; }
 

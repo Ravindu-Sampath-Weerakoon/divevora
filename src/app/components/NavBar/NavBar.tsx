@@ -32,8 +32,20 @@ const NAV_LINKS = [
       { label: 'Specialties', href: '/padi-courses/Specialties' },
     ]
   },
-  { label: 'ACTIVITIES', href: '#' },
-  { label: 'DIVE SITES', href: '#' },
+  { 
+    label: 'ACTIVITIES', 
+    href: '#',
+    dropdown: [
+      { label: 'Snorkeling', href: '#' }, 
+    ]
+  },
+  { 
+    label: 'DIVE SITES', 
+    href: '#',
+    dropdown: [
+      { label: 'Hikkaduwa Dive Sites', href: '#' }, 
+    ]
+  },
   { label: 'PRICING', href: '#' },
   { label: 'CONTACT US', href: '/contact' },
 ];
@@ -42,10 +54,9 @@ export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  // --- NEW: Helper function to close everything ---
   const closeMenu = () => {
     setMenuOpen(false);
-    setActiveDropdown(null); // This closes the open submenu
+    setActiveDropdown(null);
   };
 
   const toggleMenu = () => {
@@ -56,7 +67,6 @@ export default function NavBar() {
     }
   };
 
-  // JS to Lock Body Scroll when Menu is Open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden'; 
@@ -71,14 +81,13 @@ export default function NavBar() {
   const handleDropdownClick = (e: React.MouseEvent, label: string) => {
     if (window.innerWidth <= 1400) { 
       e.preventDefault(); 
-      // Toggle the dropdown: close if open, open if closed
       setActiveDropdown(activeDropdown === label ? null : label);
     }
   };
 
   return (
     <nav className={styles.navbarWrapper}>
-      {/* Hamburger / Close Icon */}
+      {/* Hamburger */}
       <button
         className={styles.hamburger}
         onClick={toggleMenu}
@@ -96,10 +105,11 @@ export default function NavBar() {
         )}
       </button>
 
-      {/* Nav List Container */}
+      {/* Nav List */}
       <div className={`${styles.navContainer} ${menuOpen ? styles.navOpen : ''}`}>
         <ul className={styles.navList}>
           
+          {/* LEFT SIDE: First 4 items (Home, About, Scuba, PADI) */}
           {NAV_LINKS.slice(0, 4).map((link) => (
             <li 
               key={link.label} 
@@ -112,7 +122,7 @@ export default function NavBar() {
                   if (link.dropdown) {
                     handleDropdownClick(e, link.label);
                   } else {
-                    closeMenu(); // Use helper
+                    closeMenu(); 
                   }
                 }}
               >
@@ -127,7 +137,7 @@ export default function NavBar() {
                       <Link 
                         href={subItem.href} 
                         className={styles.dropdownLink}
-                        onClick={closeMenu} // Use helper
+                        onClick={closeMenu} 
                       >
                         {subItem.label}
                       </Link>
@@ -138,17 +148,45 @@ export default function NavBar() {
             </li>
           ))}
 
+          {/* CENTER SPACE FOR LOGO */}
           <li className={styles.fakeLogoSpace} aria-hidden="true"></li>
 
+          {/* RIGHT SIDE: Last 4 items (Activities, Sites, Pricing, Contact) */}
           {NAV_LINKS.slice(4).map((link) => (
-            <li key={link.label} className={styles.navItem}>
+            <li 
+              key={link.label} 
+              className={`${styles.navItem} ${link.dropdown ? styles.hasDropdown : ''}`}
+            >
               <Link 
                 href={link.href} 
                 className={styles.navLink} 
-                onClick={closeMenu} // Use helper
+                onClick={(e) => {
+                  if (link.dropdown) {
+                    handleDropdownClick(e, link.label);
+                  } else {
+                    closeMenu();
+                  }
+                }}
               >
                 {link.label}
+                {link.dropdown && <FaChevronDown className={styles.dropdownIcon} />}
               </Link>
+
+              {link.dropdown && (
+                <ul className={`${styles.dropdownMenu} ${activeDropdown === link.label ? styles.showDropdownMobile : ''}`}>
+                  {link.dropdown.map((subItem) => (
+                    <li key={subItem.label} className={styles.dropdownItem}>
+                      <Link 
+                        href={subItem.href} 
+                        className={styles.dropdownLink}
+                        onClick={closeMenu} 
+                      >
+                        {subItem.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
 

@@ -9,29 +9,19 @@
 /* --- Hero Section --- */
 .hero {
   position: relative;
-  /* Increased height to account for the navbar space */
   min-height: 500px; 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* The Gradient Background (Matches CTA) */
   background: linear-gradient(to right, #004e7a, #002b45);
-  
-  /* Pull the hero up behind the navbar */
   margin-top: -180px; 
-  
-  /* Push content down so it doesn't get hidden by the navbar */
   padding-top: 180px; 
-  
   margin-bottom: 50px;
   border-radius: 0 0 20px 20px; 
   overflow: hidden;
 }
 
-.heroOverlay {
-  display: none; 
-}
+.heroOverlay { display: none; }
 
 .heroContent {
   position: relative;
@@ -53,7 +43,7 @@
 
 .heroSubtitle {
   font-size: 1.2rem;
-  color: #ffd700; /* Yellow Accent */
+  color: #ffd700; 
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -74,9 +64,9 @@
   align-items: center;
 }
 
-.textColumn {
-  flex: 1;
-  min-width: 300px;
+.textColumn { 
+  flex: 1; 
+  min-width: 300px; /* Falls back to 100% on mobile via media query */
 }
 
 .imageColumn {
@@ -86,12 +76,20 @@
   justify-content: center;
 }
 
-/* --- Welcome Slider Styles (NEW) --- */
+/* --- Slider & Thumbnails Layout --- */
+.sliderWrapper {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+/* Main Image Slider */
 .welcomeSliderContainer {
   position: relative;
   width: 100%;
-  max-width: 500px;
-  height: 350px; /* Consistent height matching old placeholder */
+  height: 350px; /* Default height for Desktop */
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); 
   border: 5px solid #ffffff; 
@@ -106,7 +104,7 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   z-index: 1;
 }
 
@@ -120,29 +118,49 @@
   object-position: center;
 }
 
-/* Dots for Slider */
-.sliderDots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+/* Thumbnail Strip */
+.thumbnailStrip {
   display: flex;
   gap: 10px;
-  z-index: 10;
+  overflow-x: auto; 
+  padding-bottom: 5px;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
+.thumbnailStrip::-webkit-scrollbar {
+  display: none; 
+}
+
+.thumbnailBtn {
+  border: none;
+  background: none;
   cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  opacity: 0.6;
   transition: all 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid transparent;
 }
 
-.activeDot {
-  background-color: #ffd700;
-  transform: scale(1.2);
+.thumbnailBtn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.activeThumb {
+  opacity: 1;
+  border-color: #ffd700; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.thumbImage {
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
+  display: block;
 }
 
 /* --- Typography --- */
@@ -210,7 +228,7 @@
   text-transform: uppercase;
 }
 
-/* --- Reviews Section Styling --- */
+/* --- Reviews Section --- */
 .reviewsSection {
   background-color: #ffffff; 
   border-radius: 20px;       
@@ -221,7 +239,7 @@
   padding: 60px 40px; 
 }
 
-/* --- Location / Map Styling --- */
+/* --- Map Styling --- */
 .locationContainer {
   display: flex;
   flex-direction: column;
@@ -234,28 +252,23 @@
   margin-bottom: 40px;
 }
 
-/* The "Attractive" Map Frame */
 .mapFrame {
   width: 100%;
-  max-width: 1000px; /* Limits width on big screens for aesthetics */
-  height: 500px;     /* Nice tall map */
-  
-  /* Decorative Card Style */
+  max-width: 1000px; 
+  height: 500px;     
   background-color: #fff;
-  padding: 10px;     /* Creates a white border effect */
+  padding: 10px;     
   border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* Deep, soft shadow */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
   border: 1px solid rgba(0,0,0,0.05);
-  
   overflow: hidden;
   position: relative;
 }
 
-/* Make iframe fill the padded area perfectly */
 .mapFrame iframe {
   width: 100%;
   height: 100%;
-  border-radius: 15px; /* Slightly smaller radius for the content */
+  border-radius: 15px; 
   display: block;
 }
 
@@ -264,13 +277,11 @@
   text-align: center;
   padding: 80px 20px;
   margin-top: 80px;
-  /* Dark blue gradient background */
   background: linear-gradient(to right, #004e7a, #002b45);
   color: white;
   border-radius: 20px 20px 0 0;
 }
 
-/* Ensure paragraph text inside CTA is WHITE */
 .ctaSection .text {
   color: #ffffff !important;
 }
@@ -295,24 +306,39 @@
   background-color: #ffcc00; 
 }
 
-/* --- Responsive --- */
+/* --- Responsive (Mobile Fixes) --- */
 @media (max-width: 768px) {
-  /* Adjust margin for mobile */
   .hero { margin-top: -120px; padding-top: 120px; min-height: 400px; }
   .heroTitle { font-size: 2rem; }
   
-  .flexContainer { flex-direction: column; gap: 40px; }
+  /* Fix 1: Reduce Grid Gap */
+  .flexContainer { 
+    flex-direction: column; 
+    gap: 30px; /* Reduced from 40px/60px */
+  }
   
   .section { padding: 40px 20px; }
-  
-  .sectionTitle { display: block; text-align: center; }
+  .sectionTitle { display: block; text-align: center; font-size: 1.8rem; }
   .sectionTitle::after { margin: 10px auto 0; }
-  
   .text { text-align: center; }
+  
+  /* Fix 2: Full width columns */
+  .textColumn, .imageColumn {
+    width: 100%;
+    min-width: 100%;
+  }
 
-  /* Map Adjustment for Mobile */
+  /* Fix 3: Responsive Slider Height */
+  .welcomeSliderContainer {
+    height: auto;
+    aspect-ratio: 4/3; /* Maintain a nice rectangle shape on mobile */
+    max-height: 300px;
+  }
+  
+  .reviewsSection { padding: 30px 20px; }
+
   .mapFrame {
-    height: 350px; /* Slightly shorter on mobile */
-    padding: 5px;  /* Thinner border on mobile */
+    height: 300px; 
+    padding: 5px; 
   }
 }

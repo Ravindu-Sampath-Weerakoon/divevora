@@ -17,12 +17,9 @@ const WELCOME_SLIDES = [
   { id: 6, src: '/photos/unnamed (6).webp', alt: 'Scuba Diving Adventure' },
   { id: 7, src: '/photos/unnamed (7).webp', alt: 'Scuba Diving Adventure' },
   { id: 8, src: '/photos/unnamed.webp', alt: 'Scuba Diving Adventure' },
- 
-  
 ];
 
 export default function AboutUs() {
-  // State for the Welcome Section Slider
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Auto-slide logic (Every 4 seconds)
@@ -45,7 +42,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 2. Welcome & Intro Section (WITH SLIDER) */}
+      {/* 2. Welcome & Intro Section (WITH THUMBNAIL SLIDER) */}
       <section className={styles.section}>
         <div className={styles.flexContainer}>
           
@@ -61,33 +58,47 @@ export default function AboutUs() {
             </p>
           </div>
 
-          {/* Image Column -> Converted to Slider */}
+          {/* Image Slider Column */}
           <div className={styles.imageColumn}>
-            <div className={styles.welcomeSliderContainer}>
-              {WELCOME_SLIDES.map((slide, index) => (
-                <div 
-                  key={slide.id}
-                  className={`${styles.welcomeSlide} ${index === currentSlide ? styles.activeSlide : ''}`}
-                >
-                  <Image 
-                    src={slide.src} 
-                    alt={slide.alt} 
-                    fill 
-                    className={styles.slideImage}
-                  />
-                </div>
-              ))}
+            <div className={styles.sliderWrapper}>
               
-              {/* Optional: Simple Dots for manual control */}
-              <div className={styles.sliderDots}>
-                {WELCOME_SLIDES.map((_, index) => (
-                  <span 
-                    key={index} 
-                    className={`${styles.dot} ${index === currentSlide ? styles.activeDot : ''}`}
-                    onClick={() => setCurrentSlide(index)}
-                  />
+              {/* Main Large Slider */}
+              <div className={styles.welcomeSliderContainer}>
+                {WELCOME_SLIDES.map((slide, index) => (
+                  <div 
+                    key={slide.id}
+                    className={`${styles.welcomeSlide} ${index === currentSlide ? styles.activeSlide : ''}`}
+                  >
+                    <Image 
+                      src={slide.src} 
+                      alt={slide.alt} 
+                      fill 
+                      className={styles.slideImage}
+                    />
+                  </div>
                 ))}
               </div>
+
+              {/* Thumbnail Strip (The "Tape" of photos) */}
+              <div className={styles.thumbnailStrip}>
+                {WELCOME_SLIDES.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    className={`${styles.thumbnailBtn} ${index === currentSlide ? styles.activeThumb : ''}`}
+                    onClick={() => setCurrentSlide(index)}
+                    aria-label={`View slide ${index + 1}`}
+                  >
+                    <Image 
+                      src={slide.src} 
+                      alt={`Thumbnail ${index + 1}`} 
+                      width={60} 
+                      height={60} 
+                      className={styles.thumbImage}
+                    />
+                  </button>
+                ))}
+              </div>
+
             </div>
           </div>
 

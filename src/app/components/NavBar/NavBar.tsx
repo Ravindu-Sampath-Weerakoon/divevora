@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './NavBar.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: 'ABOUT US', href: '/about-us' },
   { 
     label: 'SCUBA DIVING', 
-    href: '/scuba-diving', // Main link goes to default page
+    href: '/scuba-diving', 
     dropdown: [
       { label: 'Beginners (Discover)', href: '/scuba-diving?tab=beginners' },
       { label: 'Certified Divers', href: '/scuba-diving?tab=certified' },
@@ -44,10 +44,21 @@ export default function NavBar() {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
+  // JS to Lock Body Scroll when Menu is Open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'; // Lock scroll
+    } else {
+      document.body.style.overflow = ''; // Unlock scroll
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   const handleDropdownClick = (e: React.MouseEvent, label: string) => {
-    // Only toggle dropdown logic on mobile
     if (window.innerWidth <= 1068) { 
-      e.preventDefault(); // Stop navigation on mobile to show sub-menu
+      e.preventDefault(); 
       setActiveDropdown(activeDropdown === label ? null : label);
     }
   };
@@ -72,74 +83,71 @@ export default function NavBar() {
         )}
       </button>
 
-      {/* Navigation Links */}
-      <ul className={`${styles.navList} ${menuOpen ? styles.navOpen : ''}`}>
-        
-        {/* Left Side Links */}
-        {NAV_LINKS.slice(0, 4).map((link) => (
-          <li 
-            key={link.label} 
-            className={`${styles.navItem} ${link.dropdown ? styles.hasDropdown : ''}`}
-          >
-            <Link 
-              href={link.href} 
-              className={styles.navLink}
-              onClick={(e) => {
-                if (link.dropdown) {
-                  // If mobile, toggle dropdown. If desktop, let it navigate (if valid href)
-                  handleDropdownClick(e, link.label);
-                } else {
-                  setMenuOpen(false);
-                }
-              }}
+      {/* Nav List Container - Logic handled via CSS classes based on state */}
+      <div className={`${styles.navContainer} ${menuOpen ? styles.navOpen : ''}`}>
+        <ul className={styles.navList}>
+          
+          {NAV_LINKS.slice(0, 4).map((link) => (
+            <li 
+              key={link.label} 
+              className={`${styles.navItem} ${link.dropdown ? styles.hasDropdown : ''}`}
             >
-              {link.label}
-              {link.dropdown && <FaChevronDown className={styles.dropdownIcon} />}
-            </Link>
+              <Link 
+                href={link.href} 
+                className={styles.navLink}
+                onClick={(e) => {
+                  if (link.dropdown) {
+                    handleDropdownClick(e, link.label);
+                  } else {
+                    setMenuOpen(false);
+                  }
+                }}
+              >
+                {link.label}
+                {link.dropdown && <FaChevronDown className={styles.dropdownIcon} />}
+              </Link>
 
-            {/* Dropdown Menu */}
-            {link.dropdown && (
-              <ul className={`${styles.dropdownMenu} ${activeDropdown === link.label ? styles.showDropdownMobile : ''}`}>
-                {link.dropdown.map((subItem) => (
-                  <li key={subItem.label} className={styles.dropdownItem}>
-                    <Link 
-                      href={subItem.href} 
-                      className={styles.dropdownLink}
-                      onClick={() => setMenuOpen(false)} // Clicking a sub-link closes menu
-                    >
-                      {subItem.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
+              {link.dropdown && (
+                <ul className={`${styles.dropdownMenu} ${activeDropdown === link.label ? styles.showDropdownMobile : ''}`}>
+                  {link.dropdown.map((subItem) => (
+                    <li key={subItem.label} className={styles.dropdownItem}>
+                      <Link 
+                        href={subItem.href} 
+                        className={styles.dropdownLink}
+                        onClick={() => setMenuOpen(false)} 
+                      >
+                        {subItem.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+
+          <li className={styles.fakeLogoSpace} aria-hidden="true"></li>
+
+          {NAV_LINKS.slice(4).map((link) => (
+            <li key={link.label} className={styles.navItem}>
+              <Link 
+                href={link.href} 
+                className={styles.navLink} 
+                onClick={() => setMenuOpen(false)} 
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+
+          {/* Mobile Bottom Close Button */}
+          <li className={styles.mobileCloseItem}>
+            <button className={styles.mobileCloseButton} onClick={() => setMenuOpen(false)}>
+              <FaTimes /> Close Menu
+            </button>
           </li>
-        ))}
 
-        {/* Space for Center Logo */}
-        <li className={styles.fakeLogoSpace} aria-hidden="true"></li>
-
-        {/* Right Side Links */}
-        {NAV_LINKS.slice(4).map((link) => (
-          <li key={link.label} className={styles.navItem}>
-            <Link 
-              href={link.href} 
-              className={styles.navLink} 
-              onClick={() => setMenuOpen(false)} 
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-
-        {/* Mobile Bottom Close Button */}
-        <li className={styles.mobileCloseItem}>
-          <button className={styles.mobileCloseButton} onClick={() => setMenuOpen(false)}>
-            <FaTimes /> Close Menu
-          </button>
-        </li>
-
-      </ul>
+        </ul>
+      </div>
 
       {/* Center Logo */}
       <div className={styles.logoItem}>

@@ -152,7 +152,7 @@ export default function NavBar() {
       {/* Center Logo */}
       <div className={styles.logoItem}>
         <Link href="/" onClick={() => setMenuOpen(false)}>
-          <Image src={logo} alt="Divevora Logo" className={styles.logo} />
+          <Image src={logo} alt="Divevora Logo" className={styles.logo}  priority/>
         </Link>
       </div>
     </nav>

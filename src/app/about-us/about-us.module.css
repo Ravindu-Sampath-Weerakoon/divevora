@@ -6,41 +6,22 @@
   font-family: var(--font-open-sans), sans-serif;
 }
 
-/* --- Hero Section (UPDATED) --- */
+/* --- Hero Section --- */
 .hero {
   position: relative;
-  /* 1. Increased height to account for the navbar space */
   min-height: 500px; 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* 2. The Gradient Background (Matches CTA) */
   background: linear-gradient(to right, #004e7a, #002b45);
-  
-  /* 3. Pull the hero up behind the navbar */
   margin-top: -180px; 
-  
-  /* 4. Push content down so it doesn't get hidden by the navbar */
   padding-top: 180px; 
-  
   margin-bottom: 50px;
   border-radius: 0 0 20px 20px; 
   overflow: hidden;
 }
 
-/* Optional: Add a subtle pattern or image overlay if you want texture */
-/* .hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url('/your-texture.png');
-  opacity: 0.1;
-} */
-
-.heroOverlay {
-  display: none; /* We don't need the dark overlay since we have a solid gradient */
-}
+.heroOverlay { display: none; }
 
 .heroContent {
   position: relative;
@@ -51,7 +32,7 @@
 
 .heroTitle {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 3.5rem; /* Made slightly bigger */
+  font-size: 3.5rem; 
   font-weight: 800;
   color: #ffffff; 
   text-transform: uppercase;
@@ -62,7 +43,7 @@
 
 .heroSubtitle {
   font-size: 1.2rem;
-  color: #ffd700; /* Changed to Yellow to match your new theme accents */
+  color: #ffd700; 
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -83,9 +64,9 @@
   align-items: center;
 }
 
-.textColumn {
-  flex: 1;
-  min-width: 300px;
+.textColumn { 
+  flex: 1; 
+  min-width: 300px; /* Falls back to 100% on mobile via media query */
 }
 
 .imageColumn {
@@ -95,19 +76,91 @@
   justify-content: center;
 }
 
-.imagePlaceholder {
+/* --- Slider & Thumbnails Layout --- */
+.sliderWrapper {
   width: 100%;
   max-width: 500px;
-  height: 350px;
-  background-color: #ffffff; 
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
-  border: 5px solid #ffffff; 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+/* Main Image Slider */
+.welcomeSliderContainer {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Default height for Desktop */
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); 
+  border: 5px solid #ffffff; 
   overflow: hidden;
-  color: #aaa;
+  background-color: #f0f0f0;
+}
+
+.welcomeSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.activeSlide {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slideImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Thumbnail Strip */
+.thumbnailStrip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto; 
+  padding-bottom: 5px;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.thumbnailStrip::-webkit-scrollbar {
+  display: none; 
+}
+
+.thumbnailBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.thumbnailBtn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.activeThumb {
+  opacity: 1;
+  border-color: #ffd700; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.thumbImage {
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
+  display: block;
 }
 
 /* --- Typography --- */
@@ -129,7 +182,7 @@
   height: 5px;
   background-color: #00b4d8;
   border-radius: 10px;
-  margin-top: 10px;
+  margin: 10px auto 0;
 }
 
 .text {
@@ -157,6 +210,9 @@
   border-bottom: 4px solid #00b4d8; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .featureCard:hover {
@@ -172,18 +228,60 @@
   text-transform: uppercase;
 }
 
+/* --- Reviews Section --- */
+.reviewsSection {
+  background-color: #ffffff; 
+  border-radius: 20px;       
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(0,0,0,0.03);
+  padding: 60px 40px; 
+}
+
+/* --- Map Styling --- */
+.locationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.locationText {
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.mapFrame {
+  width: 100%;
+  max-width: 1000px; 
+  height: 500px;     
+  background-color: #fff;
+  padding: 10px;     
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
+  border: 1px solid rgba(0,0,0,0.05);
+  overflow: hidden;
+  position: relative;
+}
+
+.mapFrame iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px; 
+  display: block;
+}
+
 /* --- CTA Section --- */
 .ctaSection {
   text-align: center;
   padding: 80px 20px;
   margin-top: 80px;
-  /* Dark blue gradient background */
   background: linear-gradient(to right, #004e7a, #002b45);
   color: white;
   border-radius: 20px 20px 0 0;
 }
 
-/* Ensure paragraph text inside CTA is WHITE */
 .ctaSection .text {
   color: #ffffff !important;
 }
@@ -208,14 +306,39 @@
   background-color: #ffcc00; 
 }
 
-/* --- Responsive --- */
+/* --- Responsive (Mobile Fixes) --- */
 @media (max-width: 768px) {
-  /* Adjust margin for mobile since nav might be smaller */
   .hero { margin-top: -120px; padding-top: 120px; min-height: 400px; }
   .heroTitle { font-size: 2rem; }
-  .flexContainer { flex-direction: column; gap: 40px; }
+  
+  /* Fix 1: Reduce Grid Gap */
+  .flexContainer { 
+    flex-direction: column; 
+    gap: 30px; /* Reduced from 40px/60px */
+  }
+  
   .section { padding: 40px 20px; }
-  .sectionTitle { display: block; text-align: center; }
+  .sectionTitle { display: block; text-align: center; font-size: 1.8rem; }
   .sectionTitle::after { margin: 10px auto 0; }
   .text { text-align: center; }
+  
+  /* Fix 2: Full width columns */
+  .textColumn, .imageColumn {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  /* Fix 3: Responsive Slider Height */
+  .welcomeSliderContainer {
+    height: auto;
+    aspect-ratio: 4/3; /* Maintain a nice rectangle shape on mobile */
+    max-height: 300px;
+  }
+  
+  .reviewsSection { padding: 30px 20px; }
+
+  .mapFrame {
+    height: 300px; 
+    padding: 5px; 
+  }
 }

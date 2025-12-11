@@ -5,19 +5,19 @@ import styles from "./OfferCardSection.module.css";
 const OfferCardSection: React.FC = () => {
   const cards = [
     {
-      image: "/scuba.jpg",
+      image: "/scuba.webp",
       title: "SCUBA DIVING",
       description: "Explore reefs and marine life with certified guides.",
       buttonText: "Learn More",
     },
     {
-      image: "/padi.jpg",
+      image: "/padi.webp",
       title: "PADI COURSES",
       description: "Learn from professionals and earn international diving certification.",
       buttonText: "Learn More",
     },
     {
-      image: "/snorkeling.jpg",
+      image: "/snorkeling.webp",
       title: "SNORKELING",
       description: "Perfect for beginners – enjoy surface-level marine views.",
       buttonText: "Learn More",

@@ -1,11 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './scuba-diving.module.css';
 import { FaUserAstronaut, FaCertificate, FaCheckCircle, FaWater } from 'react-icons/fa';
 
-export default function ScubaDivingPage() {
-  const [activeTab, setActiveTab] = useState<'beginners' | 'certified'>('beginners');
+// 1. Create a separate component for the content to handle search params
+function ScubaContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // 2. Determine active tab from URL (Default to 'beginners' if missing)
+  const activeTab = searchParams.get('tab') === 'certified' ? 'certified' : 'beginners';
+
+  // 3. Function to update URL without reloading
+  const handleTabChange = (tab: 'beginners' | 'certified') => {
+    // scroll: false keeps the user at the same scroll position
+    router.push(`/scuba-diving?tab=${tab}`, { scroll: false });
+  };
 
   return (
     <div className={styles.container}>
@@ -17,21 +29,20 @@ export default function ScubaDivingPage() {
           <p className={styles.heroSubtitle}>Explore the Unseen World</p>
         </div>
 
-        {/* NEW: Guide Text */}
         <p className={styles.guideText}>Select your experience level below:</p>
 
         {/* Tab Navigation Buttons */}
         <div className={styles.tabContainer}>
           <button 
             className={`${styles.tabButton} ${activeTab === 'beginners' ? styles.activeTab : ''}`}
-            onClick={() => setActiveTab('beginners')}
+            onClick={() => handleTabChange('beginners')}
           >
             <FaUserAstronaut style={{ marginRight: '8px' }} /> Beginners (Discover)
           </button>
           
           <button 
             className={`${styles.tabButton} ${activeTab === 'certified' ? styles.activeTab : ''}`}
-            onClick={() => setActiveTab('certified')}
+            onClick={() => handleTabChange('certified')}
           >
             <FaCertificate style={{ marginRight: '8px' }} /> Certified Divers
           </button>
@@ -117,5 +128,14 @@ export default function ScubaDivingPage() {
 
       </div>
     </div>
+  );
+}
+
+// 4. Wrap with Suspense to prevent build errors with useSearchParams
+export default function ScubaDivingPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ScubaContent />
+    </Suspense>
   );
 }

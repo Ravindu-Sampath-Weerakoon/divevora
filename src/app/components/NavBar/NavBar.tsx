@@ -36,7 +36,7 @@ const NAV_LINKS = [
     label: 'ACTIVITIES', 
     href: '#',
     dropdown: [
-      { label: 'Snorkeling', href: '#' }, 
+      { label: 'Snorkeling', href: '/ACTIVITIES/Snorkeling' }, 
     ]
   },
   { 

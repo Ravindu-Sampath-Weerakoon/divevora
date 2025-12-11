@@ -1,0 +1,354 @@
+/* --- Container --- */
+.container {
+  min-height: 100vh;
+  color: #333;
+  font-family: var(--font-open-sans), sans-serif;
+  background-color: #f8f9fa; /* Light grey background for contrast */
+}
+
+/* --- Hero Section --- */
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Use a generic money/booking/happy diver image */
+  background: url('/photos/unnamed.webp') no-repeat center center; 
+  background-size: cover;
+  margin-top: -80px; 
+  padding-top: 80px;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 78, 122, 0.6), rgba(0, 43, 69, 0.8));
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.heroTitle {
+  font-family: var(--font-montserrat);
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #ffffff; 
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: #ffd700;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+.heroBadge {
+  display: inline-block;
+  background-color: #00b4d8;
+  color: white;
+  font-weight: 700;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(0, 180, 216, 0.4);
+  transform: rotate(-3deg);
+}
+
+/* --- Intro Section --- */
+.section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.introContainer {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: var(--font-montserrat);
+  font-size: 2.5rem;
+  color: #0077b6;
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* --- Pricing Grid --- */
+.pricingSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* Card Styling */
+.pricingCard {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.pricingCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Featured Card (Courses) gets slightly different border/shadow */
+.featuredCard {
+  border: 2px solid #e9c46a;
+  transform: scale(1.02);
+}
+.featuredCard:hover {
+  transform: scale(1.04) translateY(-5px);
+}
+
+.cardHeader {
+  background-color: #fff;
+  padding: 30px 20px 20px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.iconCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+  font-family: var(--font-montserrat);
+}
+
+.cardHeader p {
+  margin: 5px 0 0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.cardBody {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Price List Styling */
+.priceList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.priceList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px dashed #eee;
+  color: #555;
+}
+
+.priceList li:last-child {
+  border-bottom: none;
+}
+
+.subItem {
+  padding-left: 15px !important;
+  font-size: 0.9rem;
+  color: #777;
+  font-style: italic;
+}
+
+.price {
+  font-weight: 700;
+  color: #0077b6;
+  font-size: 1.1rem;
+}
+
+.price small {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #999;
+  margin-left: 3px;
+}
+
+/* Discounts & Info Boxes */
+.discountBox {
+  background-color: #e3f9e5; /* Light Green */
+  color: #1b5e20;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.discountIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.infoBox {
+  background-color: #e0f7fa; /* Light Cyan */
+  color: #006064;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.9rem;
+}
+
+.checkIcon {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* --- eLearning Section --- */
+.elearningContainer {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+  border-left: 5px solid #0077b6;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.elearningHeader {
+  background: #f1f8ff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #0077b6;
+}
+
+.elearningHeader h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-family: var(--font-montserrat);
+}
+
+.elearningContent {
+  padding: 30px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.alertBox {
+  background: #fff3cd; /* Warning Yellow */
+  color: #856404;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border: 1px solid #ffeeba;
+}
+
+.alertIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.code {
+  background: #fff;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-weight: 800;
+  color: #d32f2f;
+  letter-spacing: 1px;
+  border: 1px dashed #d32f2f;
+}
+
+/* --- CTA Section (Full Width Rounded Top) --- */
+.ctaSection {
+  text-align: center;
+  padding: 100px 20px; 
+  background: linear-gradient(to right, #001845, #000000); 
+  color: white;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 60px 60px 0 0; 
+  box-shadow: none;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: #ffd700;
+  color: #000;
+  padding: 15px 50px;
+  border-radius: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+  background-color: #ffcc00;
+}
+
+/* --- Animations --- */
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .heroTitle { font-size: 2.2rem; }
+  .pricingSection { grid-template-columns: 1fr; }
+  .featuredCard { transform: none; }
+  .ctaSection { padding: 60px 20px; border-radius: 40px 40px 0 0; }
+}

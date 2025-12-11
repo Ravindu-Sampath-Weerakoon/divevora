@@ -46,7 +46,7 @@ const NAV_LINKS = [
       { label: 'Hikkaduwa Dive Sites', href: '/DIVESITES/HikkaduwaDiveSites' }, 
     ]
   },
-  { label: 'PRICING', href: '#' },
+  { label: 'PRICING', href: '/PRICING' },
   { label: 'CONTACT US', href: '/contact' },
 ];
 

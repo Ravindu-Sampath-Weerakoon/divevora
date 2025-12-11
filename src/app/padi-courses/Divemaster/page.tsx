@@ -162,12 +162,12 @@ export default function DivemasterPage() {
           <p className={styles.text}>
             After earning your Divemaster certification, you can continue your education with the <strong>PADI Instructor Development Course (IDC)</strong> or specialize in areas like marine conservation and equipment maintenance.
           </p>
-          <div className={styles.stepBadge}>
-            <Link href="/padi-courses/PADIScubaDiver" className={styles.stepBadge}>
+          
+            <Link href="/padi-courses/Specialties" className={styles.stepBadge}>
             <span>Become an Instructor</span>
             <FaArrowRight />
             </Link>
-          </div>
+          
         </div>
       </section>
 

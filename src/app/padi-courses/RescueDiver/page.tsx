@@ -157,12 +157,12 @@ export default function RescueDiverPage() {
           <p className={styles.text}>
             After earning your Rescue Diver certification, you are ready to enter the professional world of diving! Continue your education with the <strong>PADI Divemaster</strong> course or become an <strong>EFR Instructor</strong>.
           </p>
-          <div className={styles.stepBadge}>
-            <Link href="/padi-courses/PADIScubaDiver" className={styles.stepBadge}>
+        
+            <Link href="/padi-courses/EmergencyFirstResponse" className={styles.stepBadge}>
             <span>Go Professional</span>
             <FaArrowRight />
             </Link>
-          </div>
+          
         </div>
       </section>
 

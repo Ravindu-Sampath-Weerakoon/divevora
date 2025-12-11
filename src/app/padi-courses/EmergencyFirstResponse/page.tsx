@@ -155,12 +155,12 @@ export default function EFRPage() {
           <p className={styles.text}>
             After completing EFR, divers can proceed to the <strong>PADI Rescue Diver</strong> course. You can also become an <strong>EFR Instructor</strong> to teach these vital skills to others!
           </p>
-          <div className={styles.stepBadge}>
-            <Link href="/padi-courses/PADIScubaDiver" className={styles.stepBadge}>
+          
+            <Link href="/padi-courses/Divemaster" className={styles.stepBadge}>
             <span>Become a Rescue Diver</span>
             <FaArrowRight />
             </Link>
-          </div>
+          
         </div>
       </section>
 

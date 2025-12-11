@@ -157,12 +157,12 @@ export default function OpenWaterPage() {
           <p className={styles.text}>
             After becoming a certified Open Water Diver, you can continue your education with the <strong>PADI Advanced Open Water Diver</strong>, Rescue Diver, or Specialty courses to unlock new adventures!
           </p>
-          <div className={styles.stepBadge}>
-            <Link href="/padi-courses/PADIScubaDiver" className={styles.stepBadge}>
+          
+            <Link href="/padi-courses/AdvancedOpenWaterDiver" className={styles.stepBadge}>
             <span>Go Advanced</span>
             <FaArrowRight />
             </Link>
-          </div>
+          
         </div>
       </section>
 

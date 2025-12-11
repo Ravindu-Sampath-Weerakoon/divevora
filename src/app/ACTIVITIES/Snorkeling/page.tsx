@@ -41,58 +41,35 @@ export default function SnorkelingPage() {
         </div>
       </section>
 
-      {/* 3. Destinations Comparison (Hikkaduwa vs Pigeon Island) */}
+      {/* 3. Destination: Hikkaduwa (Centered Single Layout) */}
       <section className={`${styles.section} ${styles.tealSection}`}>
-        <h2 className={styles.sectionTitleWhite}>Top Snorkeling Destinations</h2>
+        <h2 className={styles.sectionTitleWhite}>Snorkeling in Hikkaduwa</h2>
         
-        <div className={styles.splitGrid}>
+        {/* Changed from splitGrid to singleDestinationWrapper */}
+        <div className={styles.singleDestinationWrapper}>
           
           {/* Hikkaduwa Box */}
           <div className={styles.destBox}>
             <div className={styles.iconHeader}>
               <FaUmbrellaBeach size={40} color="#0096c7" />
-              <h3>Hikkaduwa</h3>
+              <h3>What to Expect</h3>
             </div>
             <p className={styles.destIntro}>
-              Renowned for clear waters and rich biodiversity. Best season: <strong>October to May</strong>.
+              Hikkaduwa, located on Sri Lanka’s southwest coast, is renowned for its clear waters and rich marine biodiversity. 
+              The best time to snorkel here is from <strong>October to May</strong> when the seas are calm and visibility is at its best.
             </p>
             <ul className={styles.list}>
               <li>
                 <FaLeaf className={styles.listIcon} />
-                <span><strong>Coral Gardens:</strong> Home to over 70 varieties of multi-colored corals. A true paradise.</span>
+                <span><strong>Coral Gardens:</strong> Hikkaduwa Marine National Park is home to over 70 varieties of multi-colored corals, making it a snorkeler’s paradise.</span>
               </li>
               <li>
                 <FaFish className={styles.listIcon} />
-                <span><strong>Marine Life:</strong> Swim with sea turtles, parrotfish, and moray eels in shallow waters.</span>
+                <span><strong>Marine Life:</strong> Expect to see a vibrant underwater world filled with tropical fish, sea turtles, parrotfish, and moray eels.</span>
               </li>
               <li>
                 <FaWater className={styles.listIcon} />
-                <span><strong>Easy Access:</strong> Reefs are just meters from the shore. Start directly from the beach!</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Pigeon Island Box */}
-          <div className={styles.destBox}>
-            <div className={styles.iconHeader}>
-              <FaMapMarkerAlt size={40} color="#ff7f50" />
-              <h3>Pigeon Island (Nilaveli)</h3>
-            </div>
-            <p className={styles.destIntro}>
-              One of two marine national parks. Pristine reefs and sharks. Best season: <strong>March to October</strong>.
-            </p>
-            <ul className={styles.list}>
-              <li>
-                <FaFish className={styles.listIcon} style={{color: '#ff7f50'}} />
-                <span><strong>Rich Biodiversity:</strong> Teeming with blacktip reef sharks, turtles, and colorful fish.</span>
-              </li>
-              <li>
-                <FaSwimmer className={styles.listIcon} style={{color: '#ff7f50'}} />
-                <span><strong>Ideal Conditions:</strong> Depths from 2m to 11m. Suitable for all skill levels.</span>
-              </li>
-              <li>
-                <FaMapMarkerAlt className={styles.listIcon} style={{color: '#ff7f50'}} />
-                <span><strong>Convenient:</strong> Just 1km from our Nilaveli center. Quick, scenic boat trips available.</span>
+                <span><strong>Easy Access:</strong> The coral reefs are located just a few meters from the shoreline, making it easy to start your adventure directly from the beach.</span>
               </li>
             </ul>
           </div>

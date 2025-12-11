@@ -43,7 +43,7 @@ const NAV_LINKS = [
     label: 'DIVE SITES', 
     href: '#',
     dropdown: [
-      { label: 'Hikkaduwa Dive Sites', href: '#' }, 
+      { label: 'Hikkaduwa Dive Sites', href: '/DIVESITES/HikkaduwaDiveSites' }, 
     ]
   },
   { label: 'PRICING', href: '#' },

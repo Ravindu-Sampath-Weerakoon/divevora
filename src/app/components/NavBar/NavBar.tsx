@@ -23,7 +23,7 @@ const NAV_LINKS = [
     href: '#', 
     dropdown: [
       { label: 'Bubblemaker', href: '/padi-courses/bubblemaker' },
-      { label: 'PADI Scuba Diver', href: '#' },
+      { label: 'PADI Scuba Diver', href: '/padi-courses/PADIScubaDiver' },
       { label: 'Open Water Diver', href: '#' },
       { label: 'Advanced Open Water Diver', href: '#' },
       { label: 'Rescue Diver', href: '#' },
@@ -42,14 +42,26 @@ export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  // --- NEW: Helper function to close everything ---
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setActiveDropdown(null); // This closes the open submenu
+  };
+
+  const toggleMenu = () => {
+    if (menuOpen) {
+      closeMenu();
+    } else {
+      setMenuOpen(true);
+    }
+  };
 
   // JS to Lock Body Scroll when Menu is Open
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden'; // Lock scroll
+      document.body.style.overflow = 'hidden'; 
     } else {
-      document.body.style.overflow = ''; // Unlock scroll
+      document.body.style.overflow = ''; 
     }
     return () => {
       document.body.style.overflow = '';
@@ -57,8 +69,9 @@ export default function NavBar() {
   }, [menuOpen]);
 
   const handleDropdownClick = (e: React.MouseEvent, label: string) => {
-    if (window.innerWidth <= 1068) { 
+    if (window.innerWidth <= 1400) { 
       e.preventDefault(); 
+      // Toggle the dropdown: close if open, open if closed
       setActiveDropdown(activeDropdown === label ? null : label);
     }
   };
@@ -83,7 +96,7 @@ export default function NavBar() {
         )}
       </button>
 
-      {/* Nav List Container - Logic handled via CSS classes based on state */}
+      {/* Nav List Container */}
       <div className={`${styles.navContainer} ${menuOpen ? styles.navOpen : ''}`}>
         <ul className={styles.navList}>
           
@@ -99,7 +112,7 @@ export default function NavBar() {
                   if (link.dropdown) {
                     handleDropdownClick(e, link.label);
                   } else {
-                    setMenuOpen(false);
+                    closeMenu(); // Use helper
                   }
                 }}
               >
@@ -114,7 +127,7 @@ export default function NavBar() {
                       <Link 
                         href={subItem.href} 
                         className={styles.dropdownLink}
-                        onClick={() => setMenuOpen(false)} 
+                        onClick={closeMenu} // Use helper
                       >
                         {subItem.label}
                       </Link>
@@ -132,7 +145,7 @@ export default function NavBar() {
               <Link 
                 href={link.href} 
                 className={styles.navLink} 
-                onClick={() => setMenuOpen(false)} 
+                onClick={closeMenu} // Use helper
               >
                 {link.label}
               </Link>
@@ -141,7 +154,7 @@ export default function NavBar() {
 
           {/* Mobile Bottom Close Button */}
           <li className={styles.mobileCloseItem}>
-            <button className={styles.mobileCloseButton} onClick={() => setMenuOpen(false)}>
+            <button className={styles.mobileCloseButton} onClick={closeMenu}>
               <FaTimes /> Close Menu
             </button>
           </li>
@@ -151,8 +164,8 @@ export default function NavBar() {
 
       {/* Center Logo */}
       <div className={styles.logoItem}>
-        <Link href="/" onClick={() => setMenuOpen(false)}>
-          <Image src={logo} alt="Divevora Logo" className={styles.logo}  priority/>
+        <Link href="/" onClick={closeMenu}>
+          <Image src={logo} alt="Divevora Logo" className={styles.logo} priority/>
         </Link>
       </div>
     </nav>

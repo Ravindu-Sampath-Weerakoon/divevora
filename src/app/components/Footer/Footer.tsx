@@ -10,10 +10,7 @@ const QUICK_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Scuba Diving', href: '/scuba-diving' },
-  { label: 'PADI Courses', href: '#' },
-  { label: 'Activities', href: '#' },
-  { label: 'Dive Sites', href: '#' },
-  { label: 'Pricing', href: '#' },
+  { label: 'Pricing', href: '/PRICING' },
   { label: 'Contact Us', href: '/contact' }, // Fixed path for Contact Us
 ];
 

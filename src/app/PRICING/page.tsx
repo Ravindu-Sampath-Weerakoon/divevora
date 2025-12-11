@@ -28,7 +28,7 @@ export default function PricingPage() {
       {/* 2. Intro / Location Info */}
       <section className={styles.section}>
         <div className={styles.introContainer}>
-          <h2 className={styles.sectionTitle}>Hikkaduwa Pricing (Oct - Apr)</h2>
+          <h2 className={styles.sectionTitle}>Hikkaduwa Pricing</h2>
           <p className={styles.text}>
             Discover our diving rates for Hikkaduwa. Whether you’re looking for single dives, 
             dive packages, or PADI courses, our affordable rates ensure you get the best value.

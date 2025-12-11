@@ -2,10 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './AdventureBanner.module.css';
 import DiverImage from './9531706Asset 1@0.2x.png';  // ✅ Make sure path is correct
+import Link from "next/link"; // Import Link
 
 const AdventureBanner: React.FC = () => {
   return (
-    <section className={styles.bannerWrapper}>
+    <section className={styles.bannerWrapper} id='book-now'>
       <div className={styles.bannerContent}>
 
      
@@ -17,7 +18,9 @@ const AdventureBanner: React.FC = () => {
           <p className={styles.subheading}>
             Explore the ocean&apos;s beauty, meet amazing marine life, and make every dive an adventure to remember — all while having fun with us!
           </p>
-          <button className={styles.ctaButton}>BOOK NOW</button>
+          <Link href="/contact" className={styles.ctaButton}>
+          BOOK NOW
+          </Link>
         </div>
         <div className={styles.imageWrapper}>
           <Image

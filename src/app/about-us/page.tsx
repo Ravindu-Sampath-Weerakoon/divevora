@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './about-us.module.css';
 import Image from 'next/image';
+import Link from 'next/link'; // 1. Import Next.js Link
 
 // Placeholder import - Replace with your actual image paths later
 // import aboutImage from '../../public/about-image.jpg'; 
@@ -97,7 +98,12 @@ export default function AboutUs() {
         <p className={styles.text} style={{ fontSize: '1.2rem' }}>
           Join us for an adventure of a lifetime. Book your dive today!
         </p>
-        <a href="/contact" className={styles.ctaButton}>Contact Us Now</a>
+        
+        {/* 2. Used Next.js Link here for optimized navigation */}
+        <Link href="/contact" className={styles.ctaButton}>
+          Contact Us Now
+        </Link>
+        
       </section>
 
     </div>

@@ -3,15 +3,30 @@
 import React, { useState } from 'react';
 import styles from './NavBar.module.css';
 import Image from 'next/image';
-import Link from 'next/link'; // 1. Import Link
+import Link from 'next/link';
 import logo from './logo.png';
+import { FaChevronDown } from 'react-icons/fa'; // Import an icon for the dropdown indicator
 
-// 2. Updated paths to match your actual pages
+// Updated Link Structure
 const NAV_LINKS = [
   { label: 'HOME', href: '/' },
   { label: 'ABOUT US', href: '/about-us' },
-  { label: 'SCUBA DIVING', href: '/scuba-diving' }, // Update these later when you create the pages
-  { label: 'PADIE COURSES', href: '#' },
+  { label: 'SCUBA DIVING', href: '/scuba-diving' },
+  { 
+    label: 'PADI COURSES', // Corrected spelling
+    href: '#', 
+    // Add the dropdown items here
+    dropdown: [
+      { label: 'Bubblemaker', href: '/padi-courses/bubblemaker' },
+      { label: 'PADI Scuba Diver', href: '#' },
+      { label: 'Open Water Diver', href: '#' },
+      { label: 'Advanced Open Water Diver', href: '#' },
+      { label: 'Rescue Diver', href: '#' },
+      { label: 'Emergency First Response (EFR)', href: '#' },
+      { label: 'Divemaster', href: '#' },
+      { label: 'Specialties', href: '#' },
+    ]
+  },
   { label: 'ACTIVITIES', href: '#' },
   { label: 'DIVE SITES', href: '#' },
   { label: 'PRICING', href: '#' },
@@ -20,8 +35,18 @@ const NAV_LINKS = [
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  // State to track active dropdown on mobile/click (optional, but good for UX)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  // Helper to toggle dropdown on mobile
+  const handleDropdownClick = (e: React.MouseEvent, label: string) => {
+    if (window.innerWidth <= 1068) { // Mobile breakpoint
+      e.preventDefault();
+      setActiveDropdown(activeDropdown === label ? null : label);
+    }
+  };
 
   return (
     <nav className={styles.navbarWrapper}>
@@ -40,15 +65,39 @@ export default function NavBar() {
       {/* Navigation Links */}
       <ul
         className={`${styles.navList} ${menuOpen ? styles.navOpen : ''}`}
-        onClick={() => setMenuOpen(false)}
       >
         {/* Left Side Links */}
         {NAV_LINKS.slice(0, 4).map((link) => (
-          <li key={link.label} className={styles.navItem}>
-            {/* 3. Replaced <a> with <Link> */}
-            <Link href={link.href} className={styles.navLink}>
+          <li 
+            key={link.label} 
+            className={`${styles.navItem} ${link.dropdown ? styles.hasDropdown : ''}`}
+          >
+            <Link 
+              href={link.href} 
+              className={styles.navLink}
+              onClick={(e) => link.dropdown && handleDropdownClick(e, link.label)}
+            >
               {link.label}
+              {/* Add arrow if it has dropdown */}
+              {link.dropdown && <FaChevronDown className={styles.dropdownIcon} />}
             </Link>
+
+            {/* Render Dropdown if it exists */}
+            {link.dropdown && (
+              <ul className={`${styles.dropdownMenu} ${activeDropdown === link.label ? styles.showDropdownMobile : ''}`}>
+                {link.dropdown.map((subItem) => (
+                  <li key={subItem.label} className={styles.dropdownItem}>
+                    <Link 
+                      href={subItem.href} 
+                      className={styles.dropdownLink}
+                      onClick={() => setMenuOpen(false)} // Close menu on click
+                    >
+                      {subItem.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
 
@@ -58,7 +107,7 @@ export default function NavBar() {
         {/* Right Side Links */}
         {NAV_LINKS.slice(4).map((link) => (
           <li key={link.label} className={styles.navItem}>
-            <Link href={link.href} className={styles.navLink}>
+            <Link href={link.href} className={styles.navLink} onClick={() => setMenuOpen(false)}>
               {link.label}
             </Link>
           </li>

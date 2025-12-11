@@ -73,6 +73,7 @@
 
 /* Call to action button */
 .ctaButton {
+  text-decoration: none ;
   background-color: #ffcc00;
   color: #1e1e1e;
   padding: 0.8rem 1.6rem;
@@ -84,6 +85,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   max-width: 300px;
   width: fit-content;
+  
 }
 
 .ctaButton:hover {

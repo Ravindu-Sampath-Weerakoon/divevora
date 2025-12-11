@@ -38,8 +38,8 @@ export default function HeroSection() {
           </p>
           <div className={styles.heroButtons}>
             {/* Using standard anchors for on-page scroll sections */}
-            <a href="#explore" className={styles.primaryBtn}>Explore More</a>
-            <a href="#book" className={styles.secondaryBtn}>Book Your Dive</a>
+            <a href="#offer-explore" className={styles.primaryBtn}>Explore More</a>
+            <a href="#book-now" className={styles.secondaryBtn}>Book Your Dive</a>
           </div>
         </div>
 

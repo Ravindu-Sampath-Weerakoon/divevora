@@ -6,22 +6,22 @@
   font-family: var(--font-open-sans), sans-serif;
 }
 
-/* --- Hero Section (UPDATED) --- */
+/* --- Hero Section --- */
 .hero {
   position: relative;
-  /* 1. Increased height to account for the navbar space */
+  /* Increased height to account for the navbar space */
   min-height: 500px; 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* 2. The Gradient Background (Matches CTA) */
+  /* The Gradient Background (Matches CTA) */
   background: linear-gradient(to right, #004e7a, #002b45);
   
-  /* 3. Pull the hero up behind the navbar */
+  /* Pull the hero up behind the navbar */
   margin-top: -180px; 
   
-  /* 4. Push content down so it doesn't get hidden by the navbar */
+  /* Push content down so it doesn't get hidden by the navbar */
   padding-top: 180px; 
   
   margin-bottom: 50px;
@@ -29,17 +29,8 @@
   overflow: hidden;
 }
 
-/* Optional: Add a subtle pattern or image overlay if you want texture */
-/* .hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url('/your-texture.png');
-  opacity: 0.1;
-} */
-
 .heroOverlay {
-  display: none; /* We don't need the dark overlay since we have a solid gradient */
+  display: none; 
 }
 
 .heroContent {
@@ -51,7 +42,7 @@
 
 .heroTitle {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 3.5rem; /* Made slightly bigger */
+  font-size: 3.5rem; 
   font-weight: 800;
   color: #ffffff; 
   text-transform: uppercase;
@@ -62,7 +53,7 @@
 
 .heroSubtitle {
   font-size: 1.2rem;
-  color: #ffd700; /* Changed to Yellow to match your new theme accents */
+  color: #ffd700; /* Yellow Accent */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -95,19 +86,63 @@
   justify-content: center;
 }
 
-.imagePlaceholder {
+/* --- Welcome Slider Styles (NEW) --- */
+.welcomeSliderContainer {
+  position: relative;
   width: 100%;
   max-width: 500px;
-  height: 350px;
-  background-color: #ffffff; 
+  height: 350px; /* Consistent height matching old placeholder */
   border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); 
   border: 5px solid #ffffff; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  color: #aaa;
+  background-color: #f0f0f0;
+}
+
+.welcomeSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 1;
+}
+
+.activeSlide {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slideImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dots for Slider */
+.sliderDots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  background-color: #ffd700;
+  transform: scale(1.2);
 }
 
 /* --- Typography --- */
@@ -129,7 +164,7 @@
   height: 5px;
   background-color: #00b4d8;
   border-radius: 10px;
-  margin-top: 10px;
+  margin: 10px auto 0;
 }
 
 .text {
@@ -157,6 +192,9 @@
   border-bottom: 4px solid #00b4d8; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .featureCard:hover {
@@ -170,6 +208,55 @@
   margin-bottom: 15px;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+/* --- Reviews Section Styling --- */
+.reviewsSection {
+  background-color: #ffffff; 
+  border-radius: 20px;       
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(0,0,0,0.03);
+  padding: 60px 40px; 
+}
+
+/* --- Location / Map Styling --- */
+.locationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.locationText {
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+/* The "Attractive" Map Frame */
+.mapFrame {
+  width: 100%;
+  max-width: 1000px; /* Limits width on big screens for aesthetics */
+  height: 500px;     /* Nice tall map */
+  
+  /* Decorative Card Style */
+  background-color: #fff;
+  padding: 10px;     /* Creates a white border effect */
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* Deep, soft shadow */
+  border: 1px solid rgba(0,0,0,0.05);
+  
+  overflow: hidden;
+  position: relative;
+}
+
+/* Make iframe fill the padded area perfectly */
+.mapFrame iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px; /* Slightly smaller radius for the content */
+  display: block;
 }
 
 /* --- CTA Section --- */
@@ -210,12 +297,22 @@
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-  /* Adjust margin for mobile since nav might be smaller */
+  /* Adjust margin for mobile */
   .hero { margin-top: -120px; padding-top: 120px; min-height: 400px; }
   .heroTitle { font-size: 2rem; }
+  
   .flexContainer { flex-direction: column; gap: 40px; }
+  
   .section { padding: 40px 20px; }
+  
   .sectionTitle { display: block; text-align: center; }
   .sectionTitle::after { margin: 10px auto 0; }
+  
   .text { text-align: center; }
+
+  /* Map Adjustment for Mobile */
+  .mapFrame {
+    height: 350px; /* Slightly shorter on mobile */
+    padding: 5px;  /* Thinner border on mobile */
+  }
 }

@@ -1,68 +1,59 @@
-/* Theme Colors & Design Variables (as provided by you, ensure these are globally accessible, e.g., in global.css) */
-/* :root {
-  --primary-color: #0077b6;
-  --secondary-color: #00b4d8;
-  --accent-color: #90e0ef;
-  --background-color: #f0f9ff;
-  --text-color: #1e1e1e;
-  --glass-bg: rgba(255, 255, 255, 0.3);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --border-radius: 16px;
-  --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-} */
-
-
+/* --- Wrapper (Layout Only) --- */
 .heroWrapper {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url('/main_image3.webp') no-repeat center center; /* Your background image */
-  background-size: cover;
   display: flex;
-  align-items: center; /* Vertically center the entire content block within the wrapper */
-  justify-content: center; /* Center the whole content block horizontally within the wrapper */
+  align-items: center; 
+  justify-content: center; 
   padding: 2rem;
-  margin-top: -60px;
+  /* Pulls section up behind the transparent navbar */
+  margin-top: -60px; 
   overflow: hidden;
 }
 
-/* Overlay for the background image to make text more readable */
-.heroWrapper::before {
-  content: '';
+/* --- Background Image Container --- */
+/* This positions the Next.js <Image> absolutely behind everything */
+.bgImageContainer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45);
+  z-index: 0; 
+}
+
+/* --- Dark Overlay --- */
+/* Sits on top of the image but behind the text */
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45); /* Adjust opacity here */
   z-index: 1;
 }
 
+/* --- Content Layer --- */
 .heroContent {
   position: relative;
-  z-index: 2;
+  z-index: 2; /* Ensures text is clickable and visible */
   display: flex;
   justify-content: space-around;
-  /* <<< IMPORTANT CHANGE: Align items to their respective starts/ends for vertical distribution */
-  align-items: flex-start; /* Aligns items to the top of the flex container initially */
+  align-items: flex-start; 
   width: 100%;
   max-width: 1200px;
   padding: 0 4%;
-  background: none;
-  border-radius: 0;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: none;
-  box-shadow: none;
 }
 
+/* --- Layout Columns --- */
 .leftColumn {
   flex: 1;
   max-width: 50%;
   text-align: left;
   padding-right: 2rem;
-  /* <<< NEW: Push left column slightly up from its current 'flex-start' position */
-  margin-top: 2vh; /* Adjust this value to move it further up or down */
+  margin-top: 2vh; 
 }
 
 .rightColumn {
@@ -70,11 +61,10 @@
   max-width: 50%;
   text-align: left;
   padding-left: 2rem;
-  /* <<< NEW: Push right column slightly down from its current 'flex-start' position */
-  margin-top: 34vh; /* Adjust this value to move it further down or up */
+  margin-top: 34vh; 
 }
 
-
+/* --- Typography --- */
 .heroHeading {
   font-size: 4.8rem;
   color: #fff;
@@ -99,6 +89,7 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+/* --- Buttons --- */
 .heroButtons {
   display: flex;
   gap: 1.5rem;
@@ -126,7 +117,7 @@
 
 .primaryBtn {
   background-color: #FFD700;
-  color: var(--text-color);
+  color: #1e1e1e; /* Using dark text for contrast on yellow */
 }
 
 .primaryBtn:hover,
@@ -153,7 +144,7 @@
   outline: none;
 }
 
-/* Responsive adjustments */
+/* --- Responsive Adjustments --- */
 @media (max-width: 1200px) {
   .heroHeading {
     font-size: 4rem;
@@ -162,21 +153,22 @@
 
 @media (max-width: 992px) {
   .heroContent {
-    flex-direction: column; /* Stack columns vertically on smaller screens */
-    text-align: center; /* Center text when stacked */
-    padding: 0 2rem; /* Adjust overall content padding */
+    flex-direction: column; 
+    text-align: center; 
+    padding: 0 2rem; 
+    align-items: center; /* Center align items when stacked */
   }
 
-  /* Reset margins for stacked layout */
   .leftColumn, .rightColumn {
     max-width: 100%;
     padding: 0;
     margin-top: 0;
     margin-bottom: 0;
+    text-align: center; /* Center text on mobile */
   }
 
   .leftColumn {
-    margin-bottom: 2rem; /* Space between heading and paragraph when stacked */
+    margin-bottom: 2rem; 
   }
 
   .heroHeading {

@@ -29,7 +29,7 @@ const NAV_LINKS = [
       { label: 'Rescue Diver', href: '/padi-courses/RescueDiver' },
       { label: 'Emergency First Response (EFR)', href: '/padi-courses/EmergencyFirstResponse' },
       { label: 'Divemaster', href: '/padi-courses/Divemaster' },
-      { label: 'Specialties', href: '#' },
+      { label: 'Specialties', href: '/padi-courses/Specialties' },
     ]
   },
   { label: 'ACTIVITIES', href: '#' },

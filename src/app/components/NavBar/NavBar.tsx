@@ -24,9 +24,9 @@ const NAV_LINKS = [
     dropdown: [
       { label: 'Bubblemaker', href: '/padi-courses/bubblemaker' },
       { label: 'PADI Scuba Diver', href: '/padi-courses/PADIScubaDiver' },
-      { label: 'Open Water Diver', href: '#' },
-      { label: 'Advanced Open Water Diver', href: '#' },
-      { label: 'Rescue Diver', href: '#' },
+      { label: 'Open Water Diver', href: '/padi-courses/OpenWaterDiver' },
+      { label: 'Advanced Open Water Diver', href: '/padi-courses/AdvancedOpenWaterDiver' },
+      { label: 'Rescue Diver', href: '/padi-courses/RescueDiver' },
       { label: 'Emergency First Response (EFR)', href: '#' },
       { label: 'Divemaster', href: '#' },
       { label: 'Specialties', href: '#' },

@@ -2,16 +2,15 @@
 
 import React, { useState } from 'react';
 import styles from './Footer.module.css';
-import Link from 'next/link'; // 1. Import Next.js Link
+import Link from 'next/link';
 import { FaFacebookF, FaInstagram, FaTiktok, FaPhoneAlt, FaEnvelope, FaChevronRight, FaPaperPlane } from 'react-icons/fa';
 
-// 2. Define the links array (same as Navbar)
 const QUICK_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Scuba Diving', href: '/scuba-diving' },
   { label: 'Pricing', href: '/PRICING' },
-  { label: 'Contact Us', href: '/contact' }, // Fixed path for Contact Us
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 const Footer: React.FC = () => {
@@ -20,6 +19,7 @@ const Footer: React.FC = () => {
   const handleSendMessage = () => {
     const body = encodeURIComponent(message);
     const subject = encodeURIComponent("Inquiry from Website");
+    // Primary email remains info@divevora.com for the form logic
     window.location.href = `mailto:info@divevora.com?subject=${subject}&body=${body}`;
   };
 
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
         <div className={styles.column}>
           <h3 className={styles.columnTitle}>Follow Our Social Media</h3>
           <p className={styles.description}>
-            Join our community and explore the underwater world with Divevora.
+            Join our community and explore the underwater world with Divevora in Hikkaduwa.
           </p>
           <div className={styles.socialIcons}>
             <a href="https://www.facebook.com/share/17DoGFmzQx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className={styles.iconLink} aria-label="Facebook">
@@ -53,13 +53,12 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Quick Links Column (UPDATED) */}
+        {/* Quick Links Column */}
         <div className={styles.column}>
           <h3 className={styles.columnTitle}>Quick Links</h3>
           <ul className={styles.linkList}>
             {QUICK_LINKS.map((link) => (
               <li key={link.label}>
-                {/* 3. Replaced <a> with <Link> for internal navigation */}
                 <Link href={link.href} className={styles.linkItem}>
                   <FaChevronRight className={styles.linkIcon} /> {link.label}
                 </Link>
@@ -68,19 +67,29 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Contact Us Column */}
+        {/* Contact Us Column - UPDATED WITH 2 NUMBERS & 2 EMAILS */}
         <div className={styles.column}>
           <h3 className={styles.columnTitle}>Contact Us</h3>
           <div className={styles.contactWrapper}>
             
+            {/* Phone Numbers */}
             <a href="tel:+94755511055" className={styles.contactItem}>
               <FaPhoneAlt className={styles.contactIcon} />
               <span>+94 75 551 1055</span>
             </a>
+            <a href="tel:+94773321548" className={styles.contactItem}>
+              <FaPhoneAlt className={styles.contactIcon} />
+              <span>+94 77 332 1548</span>
+            </a>
 
+            {/* Emails */}
             <a href="mailto:info@divevora.com" className={styles.contactItem}>
               <FaEnvelope className={styles.contactIcon} />
               <span>info@divevora.com</span>
+            </a>
+            <a href="mailto:divevorasrilanka@gmail.com" className={styles.contactItem}>
+              <FaEnvelope className={styles.contactIcon} />
+              <span>divevorasrilanka@gmail.com</span>
             </a>
 
             {/* Text Box Section */}
@@ -98,6 +107,11 @@ const Footer: React.FC = () => {
               <button onClick={handleSendMessage} className={styles.emailButton}>
                 Send Message <FaPaperPlane style={{ marginLeft: '8px' }} />
               </button>
+
+              {/* NEW HINT TEXT */}
+              <p className={styles.hintText}>
+                Please check your email sent box after clicking send to confirm. If not sent, contact us directly via phone or email.
+              </p>
             </div>
 
           </div>

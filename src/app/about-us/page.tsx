@@ -51,7 +51,7 @@ export default function AboutUs() {
             <h2 className={styles.sectionTitle}>Welcome to Divevora</h2>
             <p className={styles.text}>
               At Divevora, we are more than just a dive center; we are a family of passionate diving enthusiasts dedicated to sharing our love for the underwater world. 
-              Nestled in the tropical paradise of <strong>Mirissa, Sri Lanka</strong>, we offer unforgettable diving experiences that combine adventure, safety, and education.
+              Nestled in the tropical paradise of <strong>Hikkaduwa, Sri Lanka</strong>, we offer unforgettable diving experiences that combine adventure, safety, and education.
             </p>
             <p className={styles.text}>
               Whether you are taking your first breath underwater or you are an experienced diver looking to explore new depths, our team is here to guide you every step of the way.
@@ -151,7 +151,7 @@ export default function AboutUs() {
           <div className={styles.locationText}>
             <h2 className={styles.sectionTitle}>Our Location</h2>
             <p className={styles.text}>
-              Located on the stunning southern coast of Sri Lanka, our <strong>Mirissa Dive Center</strong> is your perfect starting point for underwater adventure.
+              Located on the stunning southern coast of Sri Lanka, our <strong>Hikkaduwa Dive Center</strong> is your perfect starting point for underwater adventure.
             </p>
           </div>
           <div className={styles.mapFrame}>

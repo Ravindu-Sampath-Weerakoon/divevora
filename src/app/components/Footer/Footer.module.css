@@ -14,8 +14,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* Double Blue Border */
   border-top: 3px solid #00b4d8; 
   border-bottom: 3px solid #00b4d8; 
 }
@@ -57,7 +55,6 @@
   display: inline-block;
 }
 
-/* The small blue dash under the title */
 .columnTitle::after {
   content: '';
   position: absolute;
@@ -151,15 +148,15 @@
 .contactWrapper {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px; /* Tighter gap for dual entries */
 }
 
 .contactItem {
   display: flex;
   align-items: center; 
   color: #cccccc;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.92rem; /* Slightly smaller to fit two of each */
+  line-height: 1.4;
   text-decoration: none; 
   transition: color 0.3s ease;
 }
@@ -170,26 +167,26 @@
 
 .contactIcon {
   color: #00b4d8;
-  margin-right: 15px;
-  font-size: 1.1rem;
+  margin-right: 12px;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
-/* --- NEW: Text Box & Button Styles --- */
+/* --- Text Box & Button Styles --- */
 .emailBoxWrapper {
-  margin-top: 20px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* Optional: adds a subtle box around the input area */
   background-color: #262626; 
-  padding: 15px;
+  padding: 18px;
   border-radius: 8px;
   border: 1px solid #333;
 }
 
 .inputLabel {
   font-size: 0.85rem;
-  color: #cccccc;
+  color: #ffffff;
   margin: 0;
   font-weight: 600;
 }
@@ -198,38 +195,54 @@
   width: 100%;
   padding: 12px;
   border-radius: 4px;
-  border: 1px solid #555;
-  background-color: #333; /* Dark input bg */
+  border: 1px solid #444;
+  background-color: #333;
   color: #fff;
   font-family: inherit;
   resize: none; 
   outline: none;
   font-size: 0.9rem;
-  transition: border 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 
 .emailInput:focus {
-  border-color: #00b4d8; /* Blue border on focus */
+  border-color: #00b4d8;
 }
 
 .emailButton {
   background-color: #00b4d8;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: 4px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s ease;
-  font-size: 0.9rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 0.85rem;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .emailButton:hover {
   background-color: #0096c7;
+  transform: translateY(-2px);
+}
+
+.emailButton:active {
+  transform: translateY(0);
+}
+
+/* --- Hint Text Style --- */
+.hintText {
+  font-size: 0.75rem;
+  color: #888888;
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+  text-align: center;
 }
 
 /* --- Copyright --- */
@@ -250,7 +263,6 @@
     padding: 40px 20px;
   }
 
-  /* Center the title underline on mobile */
   .columnTitle::after {
     left: 50%;
     transform: translateX(-50%);
@@ -260,11 +272,7 @@
     width: 40px; 
   }
 
-  .socialIcons {
-    justify-content: center;
-  }
-
-  .linkItem {
+  .socialIcons, .linkItem, .contactItem {
     justify-content: center;
   }
   
@@ -277,12 +285,8 @@
     display: none; 
   }
 
-  .contactItem {
-    justify-content: center;
-  }
-
-  /* Ensure text box aligns nicely on mobile */
   .emailBoxWrapper {
     text-align: left; 
+    margin-top: 30px;
   }
 }

@@ -13,19 +13,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Ensure this image path is correct */
   background: url('/photos/reef-background.jpg') no-repeat center center; 
   background-size: cover;
   margin-top: -80px; 
   padding-top: 80px;
 }
 
-/* Dark overlay for hero text readability */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 48, 73, 0.7);
+  background: rgba(0, 48, 73, 0.65); /* Deep ocean overlay */
 }
 
 .heroContent {
@@ -42,8 +40,6 @@
   font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 10px;
-  
-  /* White Text + Strong Drop Shadow */
   color: #ffffff; 
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
 }
@@ -53,12 +49,10 @@
   color: #ffd700; /* Gold */
   font-weight: 700;
   letter-spacing: 1px;
-  
-  /* Subtle Drop Shadow */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
-/* --- Intro / Explainer Text Section --- */
+/* --- Intro Section --- */
 .section {
   padding: 60px 20px;
   background: white;
@@ -79,15 +73,14 @@
 /* --- Main Content Wrapper --- */
 .contentWrapper {
   display: grid;
-  /* Default: Two columns side-by-side */
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1.2fr; 
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px 60px;
 }
 
-/* --- Left Column: Info & Details --- */
+/* --- Left Column: Info Card --- */
 .infoColumn {
   display: flex;
   flex-direction: column;
@@ -109,59 +102,46 @@
   font-weight: 700;
 }
 
-/* --- Google Map Container --- */
-.mapContainer {
-  margin-top: 20px;
-  margin-bottom: 30px;
-  border-radius: 15px;
-  overflow: hidden; /* Ensures the iframe corners are rounded */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  border: 1px solid #eee;
-}
-
 .contactDetails {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
+  margin-top: 25px;
 }
 
-/* Clickable Contact Items (Phone/Email) */
 .contactItem {
   display: flex;
   align-items: center;
   gap: 15px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #333;
   text-decoration: none;
-  padding: 15px;
+  padding: 12px 15px;
   border-radius: 10px;
   background-color: #f4f8fb;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #eef2f6;
   transition: all 0.3s ease;
-  cursor: pointer;
-  overflow-wrap: break-word; /* Prevents text overflow */
 }
 
-/* Hover Effect ("The Hit") */
 .contactItem:hover {
-  background-color: #0077b6; /* Turn Blue */
+  background-color: #0077b6;
   color: white; 
-  transform: translateX(10px); /* Slide Right */
-  box-shadow: 0 5px 15px rgba(0, 119, 182, 0.3);
+  transform: translateX(8px);
+  box-shadow: 0 5px 15px rgba(0, 119, 182, 0.2);
 }
 
 .contactItem:hover .icon {
-  color: #ffd700; /* Icon turns Gold */
+  color: #ffd700;
 }
 
 .icon {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #0077b6;
   transition: color 0.3s ease;
   flex-shrink: 0;
 }
 
-/* --- Social Media Section --- */
+/* --- Social Media --- */
 .socialSection {
   margin-top: 40px;
   padding-top: 30px;
@@ -169,30 +149,27 @@
 }
 
 .socialTitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: 700;
 }
 
 .socialIcons {
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .socialLink {
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   background-color: #f0f0f0;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #333;
-  font-size: 1.2rem;
   transition: all 0.3s ease;
-  text-decoration: none;
 }
 
 .socialLink:hover {
@@ -202,17 +179,12 @@
 }
 
 /* --- Right Column: Form --- */
-.formColumn {
-  display: flex;
-  flex-direction: column;
-}
-
 .formCard {
   background: white;
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  border-top: 5px solid #0077b6;
+  border-top: 6px solid #0077b6;
 }
 
 .formGroup {
@@ -223,19 +195,23 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #555;
-  font-size: 0.95rem;
+  color: #444;
+  font-size: 0.9rem;
 }
 
 .input, .textarea, .select {
   width: 100%;
-  padding: 12px 15px;
+  padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: inherit;
-  transition: border-color 0.3s ease;
-  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.input:focus, .textarea:focus, .select:focus {
+  outline: none;
+  border-color: #0077b6;
+  box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.1);
 }
 
 .textarea {
@@ -243,58 +219,38 @@
   resize: vertical;
 }
 
-.input:focus, .textarea:focus, .select:focus {
-  outline: none;
-  border-color: #0077b6;
-  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
-}
-
 .submitButton {
-  display: block;
   width: 100%;
-  padding: 15px;
+  padding: 16px;
   background-color: #ffd700;
   color: #000;
   border: none;
   border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
 }
 
 .submitButton:hover {
   background-color: #ffcc00;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
-/* Fallback Note under button */
 .formNote {
   font-size: 0.85rem;
-  color: #777;
+  color: #888;
   margin-top: 15px;
   text-align: center;
-  line-height: 1.5;
 }
 
-.formNote a {
-  color: #0077b6;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-.formNote a:hover {
-  color: #005f87;
-}
-
-/* --- Quick Questions Section (Bottom) --- */
+/* --- Quick Questions --- */
 .quickQSection {
   text-align: center;
-  padding: 20px 20px 80px; /* Padding for bottom spacing */
-  background: transparent;
+  padding: 40px 20px 60px;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -303,10 +259,7 @@
   font-family: var(--font-montserrat);
   font-size: 1.5rem;
   color: #0077b6;
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 25px;
   font-weight: 700;
 }
 
@@ -314,79 +267,91 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .questionBtn {
-  background-color: #fff;
+  background: white;
   border: 2px solid #0077b6;
   color: #0077b6;
-  padding: 12px 25px;
+  padding: 10px 20px;
   border-radius: 50px;
-  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .questionBtn:hover {
-  background-color: #0077b6;
+  background: #0077b6;
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 119, 182, 0.25);
+  transform: translateY(-2px);
 }
 
-/* --- RESPONSIVE DESIGN --- */
+/* --- Full Width Map Section --- */
+.fullMapSection {
+  margin-top: 60px;
+  background-color: #fff;
+  padding-top: 60px;
+}
 
-/* Tablets and Mobile Devices (Stack Columns) */
+.mapHeader {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.mapIcon {
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.mapHeader h2 {
+  font-family: var(--font-montserrat);
+  font-size: 2.2rem;
+  color: #0077b6;
+  margin-bottom: 5px;
+}
+
+.mapHeader p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.fullMapContainer {
+  width: 100%;
+  height: 450px;
+  line-height: 0;
+  border-top: 5px solid #0077b6;
+}
+
+.fullMapContainer iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* --- Responsive --- */
 @media (max-width: 900px) {
   .contentWrapper {
-    grid-template-columns: 1fr; /* Stack vertically */
-    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
   }
 
-  .heroTitle {
-    font-size: 2.8rem;
+  .fullMapContainer {
+    height: 350px;
   }
 }
 
-/* Small Mobile Phones */
 @media (max-width: 600px) {
-  .heroTitle {
-    font-size: 2.2rem; 
-  }
-
-  .heroSubtitle {
-    font-size: 1.2rem;
-  }
-
-  .contentWrapper {
-    padding: 0 15px 60px; /* Less side padding */
-  }
-
   .infoCard, .formCard {
-    padding: 25px; /* Less internal padding */
+    padding: 25px;
   }
-
-  .sectionTitle {
-    font-size: 1.6rem;
-  }
-
-  /* Adjust contact items */
+  
   .contactItem {
-    font-size: 1rem;
-    padding: 12px;
-  }
-  
-  /* Disable complicated hover effects on touch screens */
-  .contactItem:hover {
-    transform: none;
-  }
-  
-  .quickQTitle {
-    font-size: 1.2rem;
-    flex-direction: column; /* Stack Icon on top of text */
-    gap: 10px;
+    font-size: 0.95rem;
   }
 }

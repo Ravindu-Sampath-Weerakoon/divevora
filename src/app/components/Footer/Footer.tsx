@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             <a href="https://www.facebook.com/share/17DoGFmzQx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className={styles.iconLink} aria-label="Facebook">
               <FaFacebookF />
             </a>
-            <a href="https://www.instagram.com/divevora_sri_lanka?igsh=MWowcG92eTBjdHJ0bA==" target="_blank" rel="noopener noreferrer" className={styles.iconLink} aria-label="Instagram">
+            <a href="https://www.instagram.com/divevorasrilanka/" target="_blank" rel="noopener noreferrer" className={styles.iconLink} aria-label="Instagram">
               <FaInstagram />
             </a>
             <a href="https://www.tiktok.com/@divevora.sri.lank?_t=ZS-8ygLtv2P0Es&_r=1" target="_blank" rel="noopener noreferrer" className={styles.iconLink} aria-label="TikTok">
